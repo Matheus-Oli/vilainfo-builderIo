@@ -16,6 +16,15 @@ const Header = () => {
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
+  const handleNavClick = (href: string) => {
+    setIsMenuOpen(false);
+    // Smooth scroll to section
+    const element = document.querySelector(href);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <header className="header fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-200 shadow-sm">
       <div className="header__container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -34,13 +43,13 @@ const Header = () => {
           {/* Desktop Navigation */}
           <nav className="header__nav hidden lg:flex items-center space-x-8">
             {navItems.map((item) => (
-              <a
+              <button
                 key={item.label}
-                href={item.href}
+                onClick={() => handleNavClick(item.href)}
                 className="header__nav-link text-gray-700 hover:text-green-600 font-medium transition-colors duration-200 py-2 px-1"
               >
                 {item.label}
-              </a>
+              </button>
             ))}
           </nav>
 
@@ -81,14 +90,13 @@ const Header = () => {
         >
           <div className="border-t border-gray-200 pt-4 space-y-2">
             {navItems.map((item) => (
-              <a
+              <button
                 key={item.label}
-                href={item.href}
-                onClick={() => setIsMenuOpen(false)}
-                className="header__mobile-link block px-4 py-3 text-gray-700 hover:text-green-600 hover:bg-gray-50 rounded-lg font-medium transition-all duration-200"
+                onClick={() => handleNavClick(item.href)}
+                className="header__mobile-link block w-full text-left px-4 py-3 text-gray-700 hover:text-green-600 hover:bg-gray-50 rounded-lg font-medium transition-all duration-200"
               >
                 {item.label}
-              </a>
+              </button>
             ))}
             <div className="border-t border-gray-200 pt-4 mt-4 px-4 space-y-3">
               <a
