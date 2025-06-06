@@ -47,13 +47,20 @@ const Index = () => {
             {/* Company Info */}
             <div className="footer__company col-span-1 md:col-span-2">
               <div className="flex items-center mb-4">
-                <div className="w-8 h-8 bg-gradient-to-r from-green-500 to-blue-500 rounded-lg flex items-center justify-center mr-3">
-                  <span className="text-white font-bold text-sm">V</span>
+                <div className="w-10 h-10 bg-gradient-to-r from-blue-500 via-green-500 to-blue-600 rounded-full flex items-center justify-center mr-3 relative">
+                  <div className="w-8 h-8 bg-white rounded-full flex items-center justify-center">
+                    <div className="w-6 h-6 bg-gradient-to-r from-blue-500 to-green-500 rounded-full"></div>
+                  </div>
                 </div>
-                <span className="text-xl font-bold">
-                  <span className="text-white">VILA</span>
-                  <span className="text-green-400">INFO</span>
-                </span>
+                <div className="flex flex-col">
+                  <span className="text-lg font-bold leading-tight">
+                    <span className="text-white">VILA</span>
+                    <span className="text-green-400">INFO</span>
+                  </span>
+                  <span className="text-xs text-gray-400 leading-tight">
+                    soluções e corporativas
+                  </span>
+                </div>
               </div>
               <p className="footer__description text-gray-400 mb-6 max-w-md">
                 Transformando negócios através da tecnologia há mais de 30 anos.

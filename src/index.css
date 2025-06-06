@@ -188,6 +188,28 @@
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
   }
 
+  /* Enhanced services card animations */
+  .services__card {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-origin: center;
+  }
+
+  .services__icon-wrapper {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .services__card:hover .services__icon-wrapper {
+    transform: scale(1.1) rotate(5deg);
+  }
+
+  .services__bullet {
+    transition: all 0.2s ease;
+  }
+
+  .services__card:hover .services__bullet {
+    transform: scale(1.2);
+  }
+
   /* Typography enhancements */
   .text-balance {
     text-wrap: balance;
@@ -209,23 +231,61 @@
     border: 1px solid rgba(75, 85, 99, 0.3);
   }
 
+  /* Services section dark mode - matching the image */
+  .dark .services {
+    background: linear-gradient(
+      to bottom,
+      rgb(30, 41, 59),
+      rgb(15, 23, 42)
+    ) !important;
+  }
+
   .dark .services__card {
-    background: rgb(31, 41, 55);
-    border-color: rgb(75, 85, 99);
+    background: rgb(30, 41, 59);
+    border: 1px solid rgb(51, 65, 85);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
   }
 
   .dark .services__card:hover {
     border-color: rgb(34, 197, 94);
-    background: rgb(17, 24, 39);
+    background: rgb(51, 65, 85);
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
   }
 
   .dark .services__icon-wrapper {
-    background: rgb(5, 46, 22) !important;
+    background: linear-gradient(
+      135deg,
+      rgb(5, 46, 22),
+      rgb(22, 163, 74)
+    ) !important;
+    border: 2px solid rgb(34, 197, 94);
   }
 
-  .dark .services__icon-wrapper:hover,
   .dark .services__card:hover .services__icon-wrapper {
-    background: rgb(34, 197, 94) !important;
+    background: linear-gradient(
+      135deg,
+      rgb(34, 197, 94),
+      rgb(22, 163, 74)
+    ) !important;
+    box-shadow: 0 8px 25px rgba(34, 197, 94, 0.3);
+  }
+
+  .dark .services__card-title {
+    color: rgb(248, 250, 252);
+  }
+
+  .dark .services__card-description {
+    color: rgb(148, 163, 184);
+  }
+
+  .dark .services__list-item span {
+    color: rgb(203, 213, 225);
+  }
+
+  .dark .services__bullet {
+    background: rgb(34, 197, 94);
+    box-shadow: 0 0 8px rgba(34, 197, 94, 0.3);
   }
 
   .dark .testimonials__card {
@@ -250,7 +310,6 @@
       rgb(59, 130, 246)
     );
   }
-
   /* Mobile improvements */
   @media (max-width: 768px) {
     .hero__stats-container {
