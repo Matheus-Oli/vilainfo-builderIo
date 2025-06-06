@@ -15,8 +15,8 @@ import {
   ArrowRight,
   Check,
 } from "lucide-react";
-import Header from '../components/Header';
-import WhatsAppButton from '../components/WhatsAppButton';
+import Header from "../components/Header";
+import WhatsAppButton from "../components/WhatsAppButton";
 
 const Services = () => {
   const { t } = useLanguage();
@@ -350,13 +350,6 @@ const Services = () => {
           </div>
         </section>
       </div>
-
-      {/* WhatsApp Button */}
-      <WhatsAppButton />
-    </div>
-  );
-};
-
 
       {/* WhatsApp Button */}
       <WhatsAppButton />
