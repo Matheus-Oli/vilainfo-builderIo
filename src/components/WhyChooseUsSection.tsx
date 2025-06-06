@@ -10,10 +10,12 @@ import {
   Award,
 } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import { useLanguage } from "@/contexts/AppContext";
 import { cn } from "@/lib/utils";
 
 const WhyChooseUsSection = () => {
   const { ref, isVisible } = useScrollAnimation({ threshold: 0.2 });
+  const { t } = useLanguage();
 
   const differentials = [
     {
@@ -44,8 +46,8 @@ const WhyChooseUsSection = () => {
       title: "Agilidade",
       description:
         "Entregamos resultados rápidos com metodologias eficientes e processos otimizados.",
-      bgColor: "bg-blue-100",
-      iconColor: "text-blue-600",
+      bgColor: "bg-blue-100 dark:bg-blue-900/20",
+      iconColor: "text-blue-600 dark:text-blue-400",
       hoverBgColor: "group-hover:bg-blue-600",
       hoverIconColor: "group-hover:text-white",
     },
@@ -54,8 +56,8 @@ const WhyChooseUsSection = () => {
       title: "Experiência",
       description:
         "Mais de 30 anos no mercado, com expertise comprovada em diversas tecnologias.",
-      bgColor: "bg-green-100",
-      iconColor: "text-green-600",
+      bgColor: "bg-green-100 dark:bg-green-900/20",
+      iconColor: "text-green-600 dark:text-green-400",
       hoverBgColor: "group-hover:bg-green-600",
       hoverIconColor: "group-hover:text-white",
     },
@@ -64,8 +66,8 @@ const WhyChooseUsSection = () => {
       title: "Qualidade",
       description:
         "Padrões elevados de qualidade em todos os projetos, garantindo excelência.",
-      bgColor: "bg-purple-100",
-      iconColor: "text-purple-600",
+      bgColor: "bg-purple-100 dark:bg-purple-900/20",
+      iconColor: "text-purple-600 dark:text-purple-400",
       hoverBgColor: "group-hover:bg-purple-600",
       hoverIconColor: "group-hover:text-white",
     },
@@ -74,8 +76,8 @@ const WhyChooseUsSection = () => {
       title: "Resultados",
       description:
         "Foco em resultados mensuráveis que impactem positivamente seu negócio.",
-      bgColor: "bg-orange-100",
-      iconColor: "text-orange-600",
+      bgColor: "bg-orange-100 dark:bg-orange-900/20",
+      iconColor: "text-orange-600 dark:text-orange-400",
       hoverBgColor: "group-hover:bg-orange-600",
       hoverIconColor: "group-hover:text-white",
     },
@@ -84,7 +86,7 @@ const WhyChooseUsSection = () => {
   return (
     <section
       ref={ref}
-      className="why-choose-us py-20 bg-white"
+      className="why-choose-us py-20 bg-white dark:bg-gray-900"
       id="diferenciais"
     >
       <div className="why-choose-us__container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -95,12 +97,11 @@ const WhyChooseUsSection = () => {
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8",
           )}
         >
-          <h2 className="why-choose-us__title text-4xl font-bold text-gray-900 mb-4">
-            Por que escolher a Vilainfo?
+          <h2 className="why-choose-us__title text-4xl font-bold text-gray-900 dark:text-white mb-4">
+            {t("why.title")}
           </h2>
-          <p className="why-choose-us__subtitle text-xl text-gray-600 max-w-3xl mx-auto">
-            Combinamos experiência, inovação e resultados para entregar as
-            melhores soluções tecnológicas
+          <p className="why-choose-us__subtitle text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+            {t("why.subtitle")}
           </p>
         </div>
 
@@ -114,8 +115,8 @@ const WhyChooseUsSection = () => {
                 : "opacity-0 translate-y-8",
             )}
           >
-            <h3 className="text-2xl font-bold text-gray-900 mb-8">
-              Nossos Diferenciais
+            <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-8">
+              {t("why.differentials")}
             </h3>
 
             <ul className="why-choose-us__list space-y-6">
@@ -125,7 +126,7 @@ const WhyChooseUsSection = () => {
                   <li
                     key={differential.text}
                     className={cn(
-                      "why-choose-us__list-item flex items-center gap-4 p-4 rounded-xl bg-gray-50 hover:bg-green-50 transition-all duration-300",
+                      "why-choose-us__list-item flex items-center gap-4 p-4 rounded-xl bg-gray-50 dark:bg-gray-800 hover:bg-green-50 dark:hover:bg-green-900/20 transition-all duration-300",
                       isVisible
                         ? "opacity-100 translate-x-0"
                         : "opacity-0 -translate-x-8",
@@ -136,10 +137,10 @@ const WhyChooseUsSection = () => {
                         : "0ms",
                     }}
                   >
-                    <div className="why-choose-us__list-icon w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center">
-                      <Icon className="w-6 h-6 text-green-600" />
+                    <div className="why-choose-us__list-icon w-12 h-12 bg-green-100 dark:bg-green-900/30 rounded-xl flex items-center justify-center">
+                      <Icon className="w-6 h-6 text-green-600 dark:text-green-400" />
                     </div>
-                    <span className="text-lg font-medium text-gray-900">
+                    <span className="text-lg font-medium text-gray-900 dark:text-white">
                       {differential.text}
                     </span>
                   </li>
@@ -164,7 +165,7 @@ const WhyChooseUsSection = () => {
                   <Card
                     key={feature.title}
                     className={cn(
-                      "why-choose-us__feature-card group cursor-pointer border-2 border-gray-100 hover:border-transparent hover:shadow-2xl transition-all duration-300 ease-out",
+                      "why-choose-us__feature-card group cursor-pointer border-2 border-gray-100 dark:border-gray-700 hover:border-transparent hover:shadow-2xl transition-all duration-300 ease-out bg-white dark:bg-gray-700",
                       isVisible
                         ? "opacity-100 translate-y-0"
                         : "opacity-0 translate-y-8",
@@ -191,13 +192,13 @@ const WhyChooseUsSection = () => {
                           )}
                         />
                       </div>
-                      <CardTitle className="why-choose-us__card-title text-xl font-bold text-gray-900">
+                      <CardTitle className="why-choose-us__card-title text-xl font-bold text-gray-900 dark:text-white">
                         {feature.title}
                       </CardTitle>
                     </CardHeader>
 
                     <CardContent className="why-choose-us__card-content pt-0">
-                      <p className="text-gray-600 leading-relaxed">
+                      <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
                         {feature.description}
                       </p>
                     </CardContent>

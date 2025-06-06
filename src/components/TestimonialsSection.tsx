@@ -1,10 +1,12 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Star, Quote } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import { useLanguage } from "@/contexts/AppContext";
 import { cn } from "@/lib/utils";
 
 const TestimonialsSection = () => {
   const { ref, isVisible } = useScrollAnimation({ threshold: 0.2 });
+  const { t } = useLanguage();
 
   const testimonials = [
     {
@@ -33,7 +35,9 @@ const TestimonialsSection = () => {
         key={index}
         className={cn(
           "w-5 h-5",
-          index < rating ? "text-yellow-400 fill-current" : "text-gray-300",
+          index < rating
+            ? "text-yellow-400 fill-current"
+            : "text-gray-300 dark:text-gray-600",
         )}
       />
     ));
@@ -42,7 +46,7 @@ const TestimonialsSection = () => {
   return (
     <section
       ref={ref}
-      className="testimonials py-20 bg-gray-50"
+      className="testimonials py-20 bg-gray-50 dark:bg-gray-800"
       id="depoimentos"
     >
       <div className="testimonials__container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -53,12 +57,11 @@ const TestimonialsSection = () => {
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8",
           )}
         >
-          <h2 className="testimonials__title text-4xl font-bold text-gray-900 mb-4">
-            O que nossos clientes dizem
+          <h2 className="testimonials__title text-4xl font-bold text-gray-900 dark:text-white mb-4">
+            {t("testimonials.title")}
           </h2>
-          <p className="testimonials__subtitle text-xl text-gray-600 max-w-3xl mx-auto">
-            Veja os depoimentos de quem já confia na Vilainfo para suas soluções
-            tecnológicas
+          <p className="testimonials__subtitle text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+            {t("testimonials.subtitle")}
           </p>
         </div>
 
@@ -68,7 +71,7 @@ const TestimonialsSection = () => {
             <Card
               key={testimonial.name}
               className={cn(
-                "testimonials__card relative bg-white border-0 shadow-lg hover:shadow-xl transition-all duration-500 ease-out",
+                "testimonials__card relative bg-white dark:bg-gray-700 border-0 shadow-lg hover:shadow-xl transition-all duration-500 ease-out",
                 isVisible
                   ? "opacity-100 translate-y-0"
                   : "opacity-0 translate-y-8",
@@ -80,7 +83,7 @@ const TestimonialsSection = () => {
               <CardContent className="testimonials__card-content p-8">
                 {/* Quote Icon */}
                 <div className="testimonials__quote-icon absolute top-6 right-6">
-                  <Quote className="w-8 h-8 text-green-200" />
+                  <Quote className="w-8 h-8 text-green-200 dark:text-green-300" />
                 </div>
 
                 {/* Stars Rating */}
@@ -89,7 +92,7 @@ const TestimonialsSection = () => {
                 </div>
 
                 {/* Testimonial Content */}
-                <blockquote className="testimonials__content text-gray-700 text-lg leading-relaxed mb-8 relative z-10">
+                <blockquote className="testimonials__content text-gray-700 dark:text-gray-300 text-lg leading-relaxed mb-8 relative z-10">
                   "{testimonial.content}"
                 </blockquote>
 
@@ -103,17 +106,17 @@ const TestimonialsSection = () => {
                     />
                   </div>
                   <div className="testimonials__client-info">
-                    <h4 className="testimonials__client-name font-semibold text-gray-900">
+                    <h4 className="testimonials__client-name font-semibold text-gray-900 dark:text-white">
                       {testimonial.name}
                     </h4>
-                    <p className="testimonials__client-role text-gray-600 text-sm">
+                    <p className="testimonials__client-role text-gray-600 dark:text-gray-400 text-sm">
                       {testimonial.role}
                     </p>
                   </div>
                 </div>
 
                 {/* Background Decoration */}
-                <div className="absolute bottom-0 right-0 w-32 h-32 bg-gradient-to-tl from-green-50 to-transparent rounded-tl-full -z-10"></div>
+                <div className="absolute bottom-0 right-0 w-32 h-32 bg-gradient-to-tl from-green-50 dark:from-green-900/20 to-transparent rounded-tl-full -z-10"></div>
               </CardContent>
             </Card>
           ))}
