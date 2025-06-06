@@ -1,10 +1,12 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Phone, MapPin } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import { useLanguage } from "@/contexts/AppContext";
 import { cn } from "@/lib/utils";
 
 const CtaSection = () => {
   const { ref, isVisible } = useScrollAnimation({ threshold: 0.2 });
+  const { t } = useLanguage();
 
   return (
     <section
@@ -29,14 +31,12 @@ const CtaSection = () => {
           )}
         >
           <h2 className="cta__title text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight">
-            Pronto para Transformar seu Negócio?
+            {t("cta.title")}
           </h2>
 
           <p className="cta__subtitle text-lg sm:text-xl text-white/90 mb-10 max-w-3xl mx-auto leading-relaxed">
-            Entre em contato conosco e descubra como nossas soluções podem
-            impulsionar o crescimento da sua empresa
+            {t("cta.subtitle")}
           </p>
-
           {/* CTA Buttons */}
           <div
             className={cn(
@@ -50,7 +50,7 @@ const CtaSection = () => {
               size="lg"
               className="cta__primary-btn bg-white text-green-600 hover:bg-gray-100 px-8 py-4 text-lg font-semibold rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200 min-w-[200px]"
             >
-              Solicitar Orçamento
+              {t("cta.primary")}
               <ArrowRight className="w-5 h-5 ml-2" />
             </Button>
 
@@ -59,7 +59,7 @@ const CtaSection = () => {
               variant="outline"
               className="cta__secondary-btn border-2 border-white text-white bg-transparent hover:bg-white hover:text-green-600 px-8 py-4 text-lg font-semibold rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200 min-w-[200px]"
             >
-              Ver Serviços
+              {t("cta.secondary")}
               <ArrowRight className="w-5 h-5 ml-2" />
             </Button>
           </div>
