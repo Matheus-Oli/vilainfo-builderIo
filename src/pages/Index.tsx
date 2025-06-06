@@ -1,11 +1,13 @@
 import Header from "../components/Header";
 import { useLanguage } from "../contexts/AppContext";
+import Header from "../components/Header";
 import HeroSection from "../components/HeroSection";
 import AboutSection from "../components/AboutSection";
 import ServicesSection from "../components/ServicesSection";
 import TestimonialsSection from "../components/TestimonialsSection";
 import WhyChooseUsSection from "../components/WhyChooseUsSection";
 import CtaSection from "../components/CtaSection";
+import WhatsAppButton from "../components/WhatsAppButton";
 
 const Index = () => {
   const { t } = useLanguage();
@@ -27,7 +29,6 @@ const Index = () => {
 
       {/* Hero Section */}
       <HeroSection />
-
       {/* About Section */}
       <AboutSection />
 
@@ -145,6 +146,9 @@ const Index = () => {
           </div>
         </div>
       </footer>
+
+      {/* WhatsApp Button */}
+      <WhatsAppButton />
     </main>
   );
 };

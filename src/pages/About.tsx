@@ -2,6 +2,7 @@ import { useLanguage } from "@/contexts/AppContext";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Users, Award, Target, Clock } from "lucide-react";
 import Header from "../components/Header";
+import WhatsAppButton from "../components/WhatsAppButton";
 
 const About = () => {
   const { t } = useLanguage();
@@ -190,6 +191,9 @@ const About = () => {
           </div>
         </section>
       </div>
+
+      {/* WhatsApp Button */}
+      <WhatsAppButton />
     </div>
   );
 };

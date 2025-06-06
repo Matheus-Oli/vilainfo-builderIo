@@ -7,6 +7,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Phone, Mail, MapPin, Clock, Send } from "lucide-react";
 import Header from "../components/Header";
+import WhatsAppButton from "../components/WhatsAppButton";
 
 const Contact = () => {
   const { t } = useLanguage();
@@ -391,6 +392,9 @@ const Contact = () => {
           </div>
         </section>
       </div>
+
+      {/* WhatsApp Button */}
+      <WhatsAppButton />
     </div>
   );
 };

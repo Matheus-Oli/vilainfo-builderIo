@@ -349,6 +349,9 @@ const Services = () => {
           </div>
         </section>
       </div>
+
+      {/* WhatsApp Button */}
+      <WhatsAppButton />
     </div>
   );
 };
