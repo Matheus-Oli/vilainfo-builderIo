@@ -216,6 +216,16 @@
 
   .dark .services__card:hover {
     border-color: rgb(34, 197, 94);
+    background: rgb(17, 24, 39);
+  }
+
+  .dark .services__icon-wrapper {
+    background: rgb(5, 46, 22) !important;
+  }
+
+  .dark .services__icon-wrapper:hover,
+  .dark .services__card:hover .services__icon-wrapper {
+    background: rgb(34, 197, 94) !important;
   }
 
   .dark .testimonials__card {
@@ -226,6 +236,10 @@
   .dark .why-choose-us__feature-card {
     background: rgb(31, 41, 55);
     border-color: rgb(75, 85, 99);
+  }
+
+  .dark .why-choose-us__feature-card:hover {
+    background: rgb(17, 24, 39);
   }
 
   .dark .cta {
