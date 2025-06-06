@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -8,24 +9,50 @@ import LanguageToggle from "./LanguageToggle";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
+  const location = useLocation();
 
   const navItems = [
-    { label: t("nav.home"), href: "#inicio" },
-    { label: t("nav.about"), href: "#quem-somos" },
-    { label: t("nav.services"), href: "#servicos" },
-    { label: t("nav.clients"), href: "#depoimentos" },
-    { label: t("nav.contact"), href: "#contato" },
+    {
+      label: t("nav.home"),
+      href: "/",
+      scrollTo: "#inicio",
+    },
+    {
+      label: t("nav.about"),
+      href: language === "pt" ? "/sobre" : "/about",
+      scrollTo: null,
+    },
+    {
+      label: t("nav.services"),
+      href: language === "pt" ? "/servicos" : "/services",
+      scrollTo: null,
+    },
+    {
+      label: t("nav.clients"),
+      href: "/",
+      scrollTo: "#depoimentos",
+    },
+    {
+      label: t("nav.contact"),
+      href: language === "pt" ? "/contato" : "/contact",
+      scrollTo: null,
+    },
   ];
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
-  const handleNavClick = (href: string) => {
+  const handleNavClick = (item: (typeof navItems)[0]) => {
     setIsMenuOpen(false);
-    const element = document.querySelector(href);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
+
+    if (item.scrollTo && location.pathname === "/") {
+      // If we're on homepage and need to scroll to section
+      const element = document.querySelector(item.scrollTo);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
     }
+    // For other cases, React Router will handle navigation
   };
 
   return (
@@ -34,26 +61,47 @@ const Header = () => {
         <div className="header__content flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
           <div className="header__logo flex items-center">
-            <div className="w-8 h-8 bg-gradient-to-r from-green-500 to-blue-500 rounded-lg flex items-center justify-center mr-3">
-              <span className="text-white font-bold text-sm">V</span>
+            <div className="flex items-center">
+              <div className="w-10 h-10 bg-gradient-to-r from-blue-500 via-green-500 to-blue-600 rounded-full flex items-center justify-center mr-3 relative">
+                <div className="w-8 h-8 bg-white rounded-full flex items-center justify-center">
+                  <div className="w-6 h-6 bg-gradient-to-r from-blue-500 to-green-500 rounded-full"></div>
+                </div>
+              </div>
+              <div className="flex flex-col">
+                <span className="text-lg lg:text-xl font-bold leading-tight">
+                  <span className="text-gray-900 dark:text-white">VILA</span>
+                  <span className="text-green-600 dark:text-green-400">
+                    INFO
+                  </span>
+                </span>
+                <span className="text-xs text-gray-600 dark:text-gray-400 leading-tight">
+                  soluções e corporativas
+                </span>
+              </div>
             </div>
-            <span className="text-xl lg:text-2xl font-bold">
-              <span className="text-gray-900 dark:text-white">VILA</span>
-              <span className="text-green-600 dark:text-green-400">INFO</span>
-            </span>
           </div>
 
           {/* Desktop Navigation */}
           <nav className="header__nav hidden lg:flex items-center space-x-6 xl:space-x-8">
-            {navItems.map((item) => (
-              <button
-                key={item.label}
-                onClick={() => handleNavClick(item.href)}
-                className="header__nav-link text-gray-700 dark:text-gray-300 hover:text-green-600 dark:hover:text-green-400 font-medium transition-colors duration-200 py-2 px-1"
-              >
-                {item.label}
-              </button>
-            ))}
+            {navItems.map((item) =>
+              item.scrollTo ? (
+                <button
+                  key={item.label}
+                  onClick={() => handleNavClick(item)}
+                  className="header__nav-link text-gray-700 dark:text-gray-300 hover:text-green-600 dark:hover:text-green-400 font-medium transition-colors duration-200 py-2 px-1"
+                >
+                  {item.label}
+                </button>
+              ) : (
+                <Link
+                  key={item.label}
+                  to={item.href}
+                  className="header__nav-link text-gray-700 dark:text-gray-300 hover:text-green-600 dark:hover:text-green-400 font-medium transition-colors duration-200 py-2 px-1"
+                >
+                  {item.label}
+                </Link>
+              ),
+            )}
           </nav>
 
           {/* Desktop Controls */}
@@ -91,15 +139,26 @@ const Header = () => {
           )}
         >
           <div className="border-t border-gray-200 dark:border-gray-700 pt-4 space-y-2">
-            {navItems.map((item) => (
-              <button
-                key={item.label}
-                onClick={() => handleNavClick(item.href)}
-                className="header__mobile-link block w-full text-left px-4 py-3 text-gray-700 dark:text-gray-300 hover:text-green-600 dark:hover:text-green-400 hover:bg-gray-50 dark:hover:bg-gray-800 rounded-lg font-medium transition-all duration-200"
-              >
-                {item.label}
-              </button>
-            ))}
+            {navItems.map((item) =>
+              item.scrollTo ? (
+                <button
+                  key={item.label}
+                  onClick={() => handleNavClick(item)}
+                  className="header__mobile-link block w-full text-left px-4 py-3 text-gray-700 dark:text-gray-300 hover:text-green-600 dark:hover:text-green-400 hover:bg-gray-50 dark:hover:bg-gray-800 rounded-lg font-medium transition-all duration-200"
+                >
+                  {item.label}
+                </button>
+              ) : (
+                <Link
+                  key={item.label}
+                  to={item.href}
+                  onClick={() => setIsMenuOpen(false)}
+                  className="header__mobile-link block w-full text-left px-4 py-3 text-gray-700 dark:text-gray-300 hover:text-green-600 dark:hover:text-green-400 hover:bg-gray-50 dark:hover:bg-gray-800 rounded-lg font-medium transition-all duration-200"
+                >
+                  {item.label}
+                </Link>
+              ),
+            )}
             <div className="border-t border-gray-200 dark:border-gray-700 pt-4 mt-4 px-4">
               <Button
                 className="w-full bg-green-600 hover:bg-green-700 dark:bg-green-500 dark:hover:bg-green-600 text-white py-3 rounded-full"

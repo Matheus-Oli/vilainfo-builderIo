@@ -64,7 +64,7 @@ const ServicesSection = () => {
   return (
     <section
       ref={ref}
-      className="services py-20 bg-white dark:bg-gray-900"
+      className="services py-20 bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-800"
       id="servicos"
     >
       <div className="services__container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -91,7 +91,7 @@ const ServicesSection = () => {
               <Card
                 key={service.title}
                 className={cn(
-                  "services__card group cursor-pointer border-2 border-gray-100 hover:border-green-200 hover:shadow-2xl hover:scale-105 transition-all duration-300 ease-out",
+                  "services__card group cursor-pointer border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 hover:border-green-300 dark:hover:border-green-600 hover:shadow-2xl hover:scale-105 transition-all duration-300 ease-out rounded-2xl overflow-hidden",
                   isVisible
                     ? "opacity-100 translate-y-0"
                     : "opacity-0 translate-y-8",
@@ -101,13 +101,13 @@ const ServicesSection = () => {
                 }}
               >
                 <CardHeader className="services__card-header text-center pb-4">
-                  <div className="services__icon-wrapper mx-auto w-16 h-16 bg-green-100 rounded-2xl flex items-center justify-center mb-4 group-hover:bg-green-200 transition-colors duration-300">
-                    <Icon className="w-8 h-8 text-green-600" />
+                  <div className="services__icon-wrapper mx-auto w-20 h-20 bg-gradient-to-br from-green-100 to-green-200 dark:from-green-900/30 dark:to-green-800/30 rounded-3xl flex items-center justify-center mb-6 group-hover:from-green-200 group-hover:to-green-300 dark:group-hover:from-green-800/40 dark:group-hover:to-green-700/40 transition-all duration-300 shadow-lg group-hover:shadow-xl">
+                    <Icon className="w-10 h-10 text-green-600 dark:text-green-400 group-hover:scale-110 transition-transform duration-300" />
                   </div>
-                  <CardTitle className="services__card-title text-xl font-bold text-gray-900">
+                  <CardTitle className="services__card-title text-xl font-bold text-gray-900 dark:text-white mb-3">
                     {service.title}
                   </CardTitle>
-                  <CardDescription className="services__card-description text-gray-600">
+                  <CardDescription className="services__card-description text-gray-600 dark:text-gray-300 mb-4">
                     {service.description}
                   </CardDescription>
                 </CardHeader>
