@@ -7,6 +7,7 @@ import {
 } from "@/components/ui/card";
 import { Code, Cloud, Shield, HeadphonesIcon } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import { useLanguage } from "@/contexts/AppContext";
 import { cn } from "@/lib/utils";
 
 const ServicesSection = () => {
