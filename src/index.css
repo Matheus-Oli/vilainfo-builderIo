@@ -199,6 +199,31 @@
     outline-offset: 2px;
   }
 
+  /* Mobile improvements */
+  @media (max-width: 768px) {
+    .hero__stats-container {
+      padding: 1rem;
+    }
+
+    .hero__stat-item p {
+      font-size: 0.75rem;
+      line-height: 1.2;
+    }
+
+    .services__grid {
+      gap: 1.5rem;
+    }
+
+    .testimonials__grid {
+      gap: 1.5rem;
+    }
+  }
+
+  /* Smooth scroll for anchor links */
+  html {
+    scroll-padding-top: 80px;
+  }
+
   /* Loading skeleton animation */
   @keyframes shimmer {
     0% {
