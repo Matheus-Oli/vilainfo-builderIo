@@ -29,16 +29,16 @@ const HeroSection = () => {
       ref={ref}
       className={cn(
         "hero relative min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 transition-all duration-700 pt-16 lg:pt-20",
-        isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+        isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8",
       )}
       id="inicio"
       style={{
-        backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1920&h=1080&fit=crop&crop=faces")',
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat'
+        backgroundImage:
+          'linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1920&h=1080&fit=crop&crop=faces")',
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
       }}
-    >
     >
       <div className="hero__container max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
         {/* Hero Content */}
@@ -49,7 +49,7 @@ const HeroSection = () => {
           )}
         >
           <h1 className="hero__title text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-white leading-tight">
-            Soluções{' '}
+            Soluções{" "}
             <span className="hero__rotating-word relative">
               <span className="text-green-400 relative z-10 drop-shadow-lg">
                 {rotatingWords[currentWordIndex]}
@@ -87,10 +87,12 @@ const HeroSection = () => {
       </div>
 
       {/* Statistics Counters */}
-      <div className={cn(
-        "hero__stats absolute bottom-8 lg:bottom-20 left-1/2 transform -translate-x-1/2 w-full max-w-5xl px-4 transition-all duration-700 delay-600",
-        isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-      )}>
+      <div
+        className={cn(
+          "hero__stats absolute bottom-8 lg:bottom-20 left-1/2 transform -translate-x-1/2 w-full max-w-5xl px-4 transition-all duration-700 delay-600",
+          isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8",
+        )}
+      >
         <div className="hero__stats-container bg-white/95 backdrop-blur-sm rounded-2xl shadow-2xl p-4 lg:p-8">
           <div className="grid grid-cols-3 gap-4 lg:gap-8 text-center">
             <div className="hero__stat-item">
