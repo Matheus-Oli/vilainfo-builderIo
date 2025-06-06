@@ -28,9 +28,17 @@ const HeroSection = () => {
     <section
       ref={ref}
       className={cn(
-        "hero min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-50 to-blue-50 px-4 sm:px-6 lg:px-8 transition-all duration-700",
-        isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8",
+        "hero relative min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 transition-all duration-700 pt-16 lg:pt-20",
+        isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
       )}
+      id="inicio"
+      style={{
+        backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1920&h=1080&fit=crop&crop=faces")',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat'
+      }}
+    >
     >
       <div className="hero__container max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
         {/* Hero Content */}
@@ -40,96 +48,74 @@ const HeroSection = () => {
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8",
           )}
         >
-          <h1 className="hero__title text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
-            Soluções{" "}
+          <h1 className="hero__title text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-white leading-tight">
+            Soluções{' '}
             <span className="hero__rotating-word relative">
-              <span className="text-green-600 relative z-10">
+              <span className="text-green-400 relative z-10 drop-shadow-lg">
                 {rotatingWords[currentWordIndex]}
               </span>
-              <span className="absolute inset-0 bg-green-100 rounded-lg -z-10 animate-pulse"></span>
+              <span className="absolute inset-0 bg-green-500/20 rounded-lg -z-10 animate-pulse blur-sm"></span>
             </span>
             <br />
             para o seu negócio
           </h1>
 
-          <p className="hero__subtitle text-xl text-gray-600 max-w-2xl">
+          <p className="hero__subtitle text-lg sm:text-xl lg:text-2xl text-white/90 max-w-3xl leading-relaxed">
             Transformamos ideias em soluções digitais eficientes com mais de 30
             anos de experiência em tecnologia
           </p>
 
-          <div className="hero__cta">
+          <div className="hero__cta flex flex-col sm:flex-row gap-4 items-center justify-center lg:justify-start">
             <Button
               size="lg"
-              className="bg-green-600 hover:bg-green-700 text-white px-8 py-4 text-lg rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200"
+              className="bg-green-600 hover:bg-green-700 text-white px-8 py-4 text-lg font-semibold rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200 min-w-[200px]"
             >
               Solicitar Orçamento
               <ArrowRight className="w-5 h-5 ml-2" />
             </Button>
-          </div>
-        </div>
 
-        {/* Hero Image/Illustration */}
-        <div
-          className={cn(
-            "hero__image relative transition-all duration-700 delay-400",
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8",
-          )}
-        >
-          <div className="hero__image-wrapper relative">
-            <div className="hero__illustration bg-gradient-to-tr from-green-400 to-blue-500 rounded-3xl p-8 shadow-2xl">
-              <div className="grid grid-cols-2 gap-6">
-                <div className="hero__icon-card bg-white/20 backdrop-blur-sm rounded-2xl p-6 flex items-center justify-center">
-                  <Code className="w-12 h-12 text-white" />
-                </div>
-                <div className="hero__icon-card bg-white/20 backdrop-blur-sm rounded-2xl p-6 flex items-center justify-center">
-                  <Cloud className="w-12 h-12 text-white" />
-                </div>
-                <div className="hero__icon-card bg-white/20 backdrop-blur-sm rounded-2xl p-6 flex items-center justify-center">
-                  <Shield className="w-12 h-12 text-white" />
-                </div>
-                <div className="hero__icon-card bg-white/20 backdrop-blur-sm rounded-2xl p-6 flex items-center justify-center">
-                  <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center">
-                    <span className="text-green-600 font-bold text-xl">
-                      24/7
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Floating elements */}
-            <div className="hero__floating-elements absolute -top-4 -right-4 w-20 h-20 bg-yellow-400 rounded-full animate-bounce"></div>
-            <div className="hero__floating-elements absolute -bottom-4 -left-4 w-16 h-16 bg-purple-400 rounded-full animate-pulse"></div>
+            <Button
+              size="lg"
+              variant="outline"
+              className="border-2 border-white text-white bg-transparent hover:bg-white hover:text-gray-900 px-8 py-4 text-lg font-semibold rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200 min-w-[200px]"
+            >
+              Nossos Serviços
+              <ArrowRight className="w-5 h-5 ml-2" />
+            </Button>
           </div>
         </div>
       </div>
 
       {/* Statistics Counters */}
-      <div
-        className={cn(
-          "hero__stats absolute bottom-20 left-1/2 transform -translate-x-1/2 w-full max-w-4xl px-4 transition-all duration-700 delay-600",
-          isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8",
-        )}
-      >
-        <div className="hero__stats-container bg-white/80 backdrop-blur-sm rounded-2xl shadow-xl p-6">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+      <div className={cn(
+        "hero__stats absolute bottom-8 lg:bottom-20 left-1/2 transform -translate-x-1/2 w-full max-w-5xl px-4 transition-all duration-700 delay-600",
+        isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+      )}>
+        <div className="hero__stats-container bg-white/95 backdrop-blur-sm rounded-2xl shadow-2xl p-4 lg:p-8">
+          <div className="grid grid-cols-3 gap-4 lg:gap-8 text-center">
             <div className="hero__stat-item">
-              <div className="text-3xl font-bold text-green-600">
+              <div className="text-2xl lg:text-4xl font-bold text-green-600 mb-1">
                 <AnimatedCounter end={30} suffix="+" />
               </div>
-              <p className="text-gray-600 mt-2">anos de experiência</p>
+              <p className="text-gray-600 text-xs lg:text-base font-medium">
+                anos de experiência
+              </p>
             </div>
             <div className="hero__stat-item">
-              <div className="text-3xl font-bold text-green-600">
+              <div className="text-2xl lg:text-4xl font-bold text-green-600 mb-1">
                 <AnimatedCounter end={200} suffix="+" />
               </div>
-              <p className="text-gray-600 mt-2">projetos entregues</p>
+              <p className="text-gray-600 text-xs lg:text-base font-medium">
+                projetos entregues
+              </p>
             </div>
             <div className="hero__stat-item">
-              <div className="text-3xl font-bold text-green-600">
+              <div className="text-2xl lg:text-4xl font-bold text-green-600 mb-1">
                 <AnimatedCounter end={50} suffix="+" />
               </div>
-              <p className="text-gray-600 mt-2">clientes satisfeitos</p>
+              <p className="text-gray-600 text-xs lg:text-base font-medium">
+                clientes satisfeitos
+              </p>
             </div>
           </div>
         </div>
