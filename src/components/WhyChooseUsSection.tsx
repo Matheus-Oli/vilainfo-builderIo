@@ -20,32 +20,31 @@ const WhyChooseUsSection = () => {
   const differentials = [
     {
       icon: CheckCircle,
-      text: "Metodologia ágil",
+      text: t("why.diff.agile"),
     },
     {
       icon: Users,
-      text: "Equipe multidisciplinar",
+      text: t("why.diff.team"),
     },
     {
       icon: Clock,
-      text: "Suporte 24/7",
+      text: t("why.diff.support"),
     },
     {
       icon: TrendingUp,
-      text: "ROI comprovado",
+      text: t("why.diff.roi"),
     },
     {
       icon: Cpu,
-      text: "Tecnologias modernas",
+      text: t("why.diff.tech"),
     },
   ];
 
   const features = [
     {
       icon: Zap,
-      title: "Agilidade",
-      description:
-        "Entregamos resultados rápidos com metodologias eficientes e processos otimizados.",
+      title: t("why.feature.agility.title"),
+      description: t("why.feature.agility.desc"),
       bgColor: "bg-blue-100 dark:bg-blue-900/20",
       iconColor: "text-blue-600 dark:text-blue-400",
       hoverBgColor: "group-hover:bg-blue-600",
@@ -53,9 +52,8 @@ const WhyChooseUsSection = () => {
     },
     {
       icon: Award,
-      title: "Experiência",
-      description:
-        "Mais de 30 anos no mercado, com expertise comprovada em diversas tecnologias.",
+      title: t("why.feature.experience.title"),
+      description: t("why.feature.experience.desc"),
       bgColor: "bg-green-100 dark:bg-green-900/20",
       iconColor: "text-green-600 dark:text-green-400",
       hoverBgColor: "group-hover:bg-green-600",
@@ -63,9 +61,8 @@ const WhyChooseUsSection = () => {
     },
     {
       icon: Target,
-      title: "Qualidade",
-      description:
-        "Padrões elevados de qualidade em todos os projetos, garantindo excelência.",
+      title: t("why.feature.quality.title"),
+      description: t("why.feature.quality.desc"),
       bgColor: "bg-purple-100 dark:bg-purple-900/20",
       iconColor: "text-purple-600 dark:text-purple-400",
       hoverBgColor: "group-hover:bg-purple-600",
@@ -73,9 +70,8 @@ const WhyChooseUsSection = () => {
     },
     {
       icon: TrendingUp,
-      title: "Resultados",
-      description:
-        "Foco em resultados mensuráveis que impactem positivamente seu negócio.",
+      title: t("why.feature.results.title"),
+      description: t("why.feature.results.desc"),
       bgColor: "bg-orange-100 dark:bg-orange-900/20",
       iconColor: "text-orange-600 dark:text-orange-400",
       hoverBgColor: "group-hover:bg-orange-600",

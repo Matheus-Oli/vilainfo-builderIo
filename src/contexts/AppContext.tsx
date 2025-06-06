@@ -71,6 +71,23 @@ const translations = {
     "why.subtitle":
       "Combinamos experiência, inovação e resultados para entregar as melhores soluções tecnológicas",
     "why.differentials": "Nossos Diferenciais",
+    "why.diff.agile": "Metodologia ágil",
+    "why.diff.team": "Equipe multidisciplinar",
+    "why.diff.support": "Suporte 24/7",
+    "why.diff.roi": "ROI comprovado",
+    "why.diff.tech": "Tecnologias modernas",
+    "why.feature.agility.title": "Agilidade",
+    "why.feature.agility.desc":
+      "Entregamos resultados rápidos com metodologias eficientes e processos otimizados.",
+    "why.feature.experience.title": "Experiência",
+    "why.feature.experience.desc":
+      "Mais de 30 anos no mercado, com expertise comprovada em diversas tecnologias.",
+    "why.feature.quality.title": "Qualidade",
+    "why.feature.quality.desc":
+      "Padrões elevados de qualidade em todos os projetos, garantindo excelência.",
+    "why.feature.results.title": "Resultados",
+    "why.feature.results.desc":
+      "Foco em resultados mensuráveis que impactem positivamente seu negócio.",
 
     // CTA
     "cta.title": "Pronto para Transformar seu Negócio?",
@@ -85,6 +102,15 @@ const translations = {
     "footer.services": "Serviços",
     "footer.contact": "Contato",
     "footer.rights": "Todos os direitos reservados.",
+    "footer.development": "Desenvolvimento",
+    "footer.cloud": "Cloud & Infraestrutura",
+    "footer.security": "Segurança",
+    "footer.support": "Suporte 24/7",
+    "footer.phone": "(27) 99999-9999",
+    "footer.email": "contato@vilainfo.com.br",
+    "footer.location": "Vila Velha, ES",
+    "footer.privacy": "Política de Privacidade",
+    "footer.terms": "Termos de Uso",
   },
   en: {
     // Header
@@ -145,6 +171,23 @@ const translations = {
     "why.subtitle":
       "We combine experience, innovation and results to deliver the best technological solutions",
     "why.differentials": "Our Differentials",
+    "why.diff.agile": "Agile methodology",
+    "why.diff.team": "Multidisciplinary team",
+    "why.diff.support": "24/7 Support",
+    "why.diff.roi": "Proven ROI",
+    "why.diff.tech": "Modern technologies",
+    "why.feature.agility.title": "Agility",
+    "why.feature.agility.desc":
+      "We deliver fast results with efficient methodologies and optimized processes.",
+    "why.feature.experience.title": "Experience",
+    "why.feature.experience.desc":
+      "Over 30 years in the market, with proven expertise in various technologies.",
+    "why.feature.quality.title": "Quality",
+    "why.feature.quality.desc":
+      "High quality standards in all projects, ensuring excellence.",
+    "why.feature.results.title": "Results",
+    "why.feature.results.desc":
+      "Focus on measurable results that positively impact your business.",
 
     // CTA
     "cta.title": "Ready to Transform your Business?",
@@ -159,6 +202,15 @@ const translations = {
     "footer.services": "Services",
     "footer.contact": "Contact",
     "footer.rights": "All rights reserved.",
+    "footer.development": "Development",
+    "footer.cloud": "Cloud & Infrastructure",
+    "footer.security": "Security",
+    "footer.support": "24/7 Support",
+    "footer.phone": "(27) 99999-9999",
+    "footer.email": "contact@vilainfo.com.br",
+    "footer.location": "Vila Velha, ES",
+    "footer.privacy": "Privacy Policy",
+    "footer.terms": "Terms of Use",
   },
 };
 

@@ -1,4 +1,5 @@
 import Header from "../components/Header";
+import { useLanguage } from "../contexts/AppContext";
 import HeroSection from "../components/HeroSection";
 import AboutSection from "../components/AboutSection";
 import ServicesSection from "../components/ServicesSection";
@@ -7,6 +8,8 @@ import WhyChooseUsSection from "../components/WhyChooseUsSection";
 import CtaSection from "../components/CtaSection";
 
 const Index = () => {
+  const { t } = useLanguage();
+
   return (
     <main className="vilainfo-homepage">
       {/* SEO Meta Information */}
@@ -63,16 +66,14 @@ const Index = () => {
                 </div>
               </div>
               <p className="footer__description text-gray-400 mb-6 max-w-md">
-                Transformando negócios através da tecnologia há mais de 30 anos.
-                Especialistas em desenvolvimento, cloud, segurança e suporte
-                técnico.
+                {t("footer.description")}
               </p>
             </div>
 
             {/* Services */}
             <div className="footer__services">
               <h4 className="footer__title text-lg font-semibold text-white mb-4">
-                Serviços
+                {t("footer.services")}
               </h4>
               <ul className="space-y-2">
                 <li>
@@ -80,7 +81,7 @@ const Index = () => {
                     href="#"
                     className="text-gray-400 hover:text-green-400 transition-colors"
                   >
-                    Desenvolvimento
+                    {t("footer.development")}
                   </a>
                 </li>
                 <li>
@@ -88,7 +89,7 @@ const Index = () => {
                     href="#"
                     className="text-gray-400 hover:text-green-400 transition-colors"
                   >
-                    Cloud & Infraestrutura
+                    {t("footer.cloud")}
                   </a>
                 </li>
                 <li>
@@ -96,7 +97,7 @@ const Index = () => {
                     href="#"
                     className="text-gray-400 hover:text-green-400 transition-colors"
                   >
-                    Segurança
+                    {t("footer.security")}
                   </a>
                 </li>
                 <li>
@@ -104,7 +105,7 @@ const Index = () => {
                     href="#"
                     className="text-gray-400 hover:text-green-400 transition-colors"
                   >
-                    Suporte 24/7
+                    {t("footer.support")}
                   </a>
                 </li>
               </ul>
@@ -113,32 +114,32 @@ const Index = () => {
             {/* Contact */}
             <div className="footer__contact">
               <h4 className="footer__title text-lg font-semibold text-white mb-4">
-                Contato
+                {t("footer.contact")}
               </h4>
               <ul className="space-y-2">
-                <li className="text-gray-400">(27) 99999-9999</li>
-                <li className="text-gray-400">contato@vilainfo.com.br</li>
-                <li className="text-gray-400">Vila Velha, ES</li>
+                <li className="text-gray-400">{t("footer.phone")}</li>
+                <li className="text-gray-400">{t("footer.email")}</li>
+                <li className="text-gray-400">{t("footer.location")}</li>
               </ul>
             </div>
           </div>
 
           <div className="footer__bottom border-t border-gray-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
             <p className="text-gray-400 text-center md:text-left">
-              &copy; 2024 Vilainfo. Todos os direitos reservados.
+              &copy; 2024 Vilainfo. {t("footer.rights")}
             </p>
             <div className="footer__social flex space-x-4 mt-4 md:mt-0">
               <a
                 href="#"
                 className="text-gray-400 hover:text-green-400 transition-colors"
               >
-                Política de Privacidade
+                {t("footer.privacy")}
               </a>
               <a
                 href="#"
                 className="text-gray-400 hover:text-green-400 transition-colors"
               >
-                Termos de Uso
+                {t("footer.terms")}
               </a>
             </div>
           </div>
