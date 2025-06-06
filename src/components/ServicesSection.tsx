@@ -11,12 +11,13 @@ import { cn } from "@/lib/utils";
 
 const ServicesSection = () => {
   const { ref, isVisible } = useScrollAnimation({ threshold: 0.2 });
+  const { t } = useLanguage();
 
   const services = [
     {
       icon: Code,
-      title: "Desenvolvimento",
-      description: "Criamos soluções sob medida para o seu negócio",
+      title: t("services.development.title"),
+      description: t("services.development.description"),
       items: [
         "Aplicações Web Responsivas",
         "Sistemas Empresariais",
@@ -26,8 +27,8 @@ const ServicesSection = () => {
     },
     {
       icon: Cloud,
-      title: "Cloud & Infraestrutura",
-      description: "Modernize sua infraestrutura com a nuvem",
+      title: t("services.cloud.title"),
+      description: t("services.cloud.description"),
       items: [
         "Migração para Cloud",
         "AWS, Azure, Google Cloud",
@@ -37,8 +38,8 @@ const ServicesSection = () => {
     },
     {
       icon: Shield,
-      title: "Segurança",
-      description: "Proteja seus dados e sistemas",
+      title: t("services.security.title"),
+      description: t("services.security.description"),
       items: [
         "Auditoria de Segurança",
         "Implementação ISO 27001",
@@ -48,8 +49,8 @@ const ServicesSection = () => {
     },
     {
       icon: HeadphonesIcon,
-      title: "Suporte",
-      description: "Suporte técnico quando você precisar",
+      title: t("services.support.title"),
+      description: t("services.support.description"),
       items: [
         "Suporte 24/7",
         "Manutenção Preventiva",
@@ -60,7 +61,11 @@ const ServicesSection = () => {
   ];
 
   return (
-    <section ref={ref} className="services py-20 bg-white" id="servicos">
+    <section
+      ref={ref}
+      className="services py-20 bg-white dark:bg-gray-900"
+      id="servicos"
+    >
       <div className="services__container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div
@@ -69,12 +74,11 @@ const ServicesSection = () => {
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8",
           )}
         >
-          <h2 className="services__title text-4xl font-bold text-gray-900 mb-4">
-            Nossos Serviços
+          <h2 className="services__title text-4xl font-bold text-gray-900 dark:text-white mb-4">
+            {t("services.title")}
           </h2>
-          <p className="services__subtitle text-xl text-gray-600 max-w-3xl mx-auto">
-            Oferecemos soluções completas em tecnologia para impulsionar o
-            crescimento do seu negócio
+          <p className="services__subtitle text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+            {t("services.subtitle")}
           </p>
         </div>
 
