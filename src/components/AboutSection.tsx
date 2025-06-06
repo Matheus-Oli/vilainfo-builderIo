@@ -1,19 +1,21 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import { useLanguage } from "@/contexts/AppContext";
 import { cn } from "@/lib/utils";
 
 const AboutSection = () => {
   const { ref, isVisible } = useScrollAnimation({ threshold: 0.2 });
+  const { t } = useLanguage();
 
   return (
     <section
       ref={ref}
-      className="about py-16 lg:py-20 bg-gray-50"
+      className="about py-16 lg:py-20 bg-gray-50 dark:bg-gray-800"
       id="quem-somos"
     >
       <div className="about__container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
           {/* Image */}
           <div
             className={cn(
@@ -52,30 +54,24 @@ const AboutSection = () => {
                 : "opacity-0 translate-x-8",
             )}
           >
-            <h2 className="about__title text-3xl lg:text-4xl font-bold text-gray-900 mb-6">
-              Quem é a <span className="text-green-600">Vilainfo</span>
+            <h2 className="about__title text-3xl lg:text-4xl font-bold text-gray-900 dark:text-white mb-6">
+              {t("about.title")}{" "}
+              <span className="text-green-600 dark:text-green-400">
+                Vilainfo
+              </span>
             </h2>
 
-            <div className="about__description space-y-4 text-gray-700 text-lg leading-relaxed mb-8">
-              <p>
-                Somos uma empresa especializada em soluções tecnológicas, com
-                mais de 30 anos de experiência no mercado. Nossa missão é
-                transformar ideias em realidade digital oferecendo serviços de
-                desenvolvimento, segurança e infraestrutura de TI com excelência
-                e inovação.
-              </p>
+            <div className="about__description space-y-4 text-gray-700 dark:text-gray-300 text-lg leading-relaxed mb-8">
+              <p>{t("about.description1")}</p>
 
-              <p>
-                Trabalhamos com as mais modernas tecnologias e metodologias
-                ágeis, garantindo entregas de qualidade no prazo estabelecido.
-              </p>
+              <p>{t("about.description2")}</p>
             </div>
 
             <Button
               size="lg"
-              className="about__cta bg-green-600 hover:bg-green-700 text-white px-8 py-4 text-lg rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200"
+              className="about__cta bg-green-600 hover:bg-green-700 dark:bg-green-500 dark:hover:bg-green-600 text-white px-8 py-4 text-lg rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200"
             >
-              Saiba Mais
+              {t("about.cta")}
               <ArrowRight className="w-5 h-5 ml-2" />
             </Button>
           </div>
