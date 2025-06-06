@@ -1,4 +1,3 @@
-import Header from "../components/Header";
 import { useLanguage } from "../contexts/AppContext";
 import Header from "../components/Header";
 import HeroSection from "../components/HeroSection";
