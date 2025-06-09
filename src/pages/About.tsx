@@ -86,13 +86,24 @@ const About = () => {
 
       <div className="pt-20">
         {/* Hero Section */}
-        <section className="py-20 bg-gradient-to-br from-green-600 via-blue-600 to-purple-600 text-white relative overflow-hidden">
-          {/* Background Pattern */}
-          <div className="absolute inset-0 opacity-10">
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,rgba(255,255,255,0.15)_1px,transparent_0)] bg-[length:20px_20px]"></div>
+        <section className="relative min-h-[60vh] flex items-center justify-center overflow-hidden">
+          {/* Background */}
+          <div className="absolute inset-0 z-0">
+            <div className="absolute inset-0 bg-gradient-to-br from-gray-900/90 via-blue-900/80 to-green-900/90 z-10"></div>
+            <img
+              src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=1920&h=1080&fit=crop"
+              alt="About Background"
+              className="w-full h-full object-cover"
+            />
           </div>
 
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+          {/* Background Pattern */}
+          <div className="absolute inset-0 z-10 opacity-10">
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,rgba(255,255,255,0.15)_1px,transparent_0)] bg-[length:50px_50px]"></div>
+          </div>
+
+          {/* Content */}
+          <div className="relative z-20 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
             <motion.h1
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
@@ -105,7 +116,7 @@ const About = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2, duration: 0.8 }}
-              className="text-xl lg:text-2xl max-w-4xl mx-auto leading-relaxed"
+              className="text-xl lg:text-2xl mb-8 opacity-90 leading-relaxed"
             >
               {isEnglish
                 ? "30 years transforming businesses through technology, integrating applications and turning data into valuable information"

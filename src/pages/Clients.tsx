@@ -134,44 +134,58 @@ const Clients = () => {
       <Header />
 
       {/* Hero Section */}
-      <section className="pt-20 pb-24 bg-gradient-to-br from-gray-50 to-white dark:from-gray-900 dark:to-gray-800 relative overflow-hidden">
-        {/* Background Pattern */}
-        <div className="absolute inset-0 opacity-5">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,rgba(59,130,246,0.15)_1px,transparent_0)] bg-[length:50px_50px]"></div>
+      <section className="relative min-h-[60vh] flex items-center justify-center overflow-hidden">
+        {/* Background */}
+        <div className="absolute inset-0 z-0">
+          <div className="absolute inset-0 bg-gradient-to-br from-gray-900/90 via-blue-900/80 to-green-900/90 z-10"></div>
+          <img
+            src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1920&h=1080&fit=crop"
+            alt="Clients Background"
+            className="w-full h-full object-cover"
+          />
         </div>
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="text-center mb-16">
-            <motion.h1
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              className="text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white mb-6"
-            >
-              {isEnglish ? "Our Clients" : "Nossos Clientes"}
-            </motion.h1>
-            <motion.p
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.1, duration: 0.8 }}
-              className="text-xl lg:text-2xl text-gray-600 dark:text-gray-300 max-w-4xl mx-auto leading-relaxed"
-            >
-              {isEnglish
-                ? "We've partnered with forward-thinking companies, from innovative startups to Fortune 100 corporations, delivering exceptional results across industries."
-                : "Firmamos parcerias com empresas visionárias, desde startups inovadoras até corporações Fortune 100, entregando resultados excepcionais em diversos setores."}
-            </motion.p>
-          </div>
+        {/* Background Pattern */}
+        <div className="absolute inset-0 z-10 opacity-10">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,rgba(255,255,255,0.15)_1px,transparent_0)] bg-[length:50px_50px]"></div>
+        </div>
 
-          {/* Stats Overview */}
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+        {/* Content */}
+        <div className="relative z-20 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
+          <motion.h1
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="text-4xl lg:text-6xl font-bold mb-6"
+          >
+            {isEnglish ? "Our Clients" : "Nossos Clientes"}
+          </motion.h1>
+          <motion.p
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2, duration: 0.8 }}
+            className="text-xl lg:text-2xl mb-8 opacity-90 leading-relaxed"
+          >
+            {isEnglish
+              ? "We've partnered with forward-thinking companies, from innovative startups to Fortune 100 corporations, delivering exceptional results across industries."
+              : "Firmamos parcerias com empresas visionárias, desde startups inovadoras até corporações Fortune 100, entregando resultados excepcionais em diversos setores."}
+          </motion.p>
+        </div>
+      </section>
+
+      {/* Stats Overview */}
+      <section className="py-16 bg-gray-50 dark:bg-gray-800">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
             {stats.map((stat, index) => {
               const Icon = stat.icon;
               return (
                 <motion.div
                   key={stat.label}
                   initial={{ opacity: 0, y: 30 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.2 + index * 0.1, duration: 0.6 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ delay: index * 0.1, duration: 0.6 }}
+                  viewport={{ once: true }}
                   className="text-center"
                 >
                   <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-blue-500 rounded-2xl flex items-center justify-center mx-auto mb-4">
