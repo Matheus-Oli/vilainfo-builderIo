@@ -16,8 +16,6 @@ import WhatsAppButton from "../components/WhatsAppButton";
 import ServiceCard from "../components/ServiceCard";
 import MethodologySection from "../components/MethodologySection";
 import TechStack from "../components/TechStack";
-import TestimonialsSection from "../components/TestimonialsSection";
-
 const Services = () => {
   const { t } = useLanguage();
   const isEnglish = t("nav.services") === "Services";
@@ -388,9 +386,6 @@ const Services = () => {
 
       {/* Tech Stack & Differentials */}
       <TechStack />
-
-      {/* Testimonials */}
-      <TestimonialsSection />
 
       {/* Final CTA */}
       <section className="py-24 bg-gradient-to-br from-gray-900 via-blue-900 to-green-900 relative overflow-hidden">

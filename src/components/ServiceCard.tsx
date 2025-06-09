@@ -34,7 +34,7 @@ const ServiceCard = ({
       className="group relative"
     >
       <div
-        className={`relative h-full bg-white dark:bg-gray-800 rounded-3xl border-2 transition-all duration-500 ${
+        className={`relative h-full min-h-[600px] bg-white dark:bg-gray-800 rounded-3xl border-2 transition-all duration-500 ${
           featured
             ? "border-green-200 dark:border-green-800 shadow-2xl scale-105"
             : "border-gray-100 dark:border-gray-700 shadow-lg hover:shadow-2xl hover:border-green-200 dark:hover:border-green-800"
