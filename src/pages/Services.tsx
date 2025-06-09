@@ -1,22 +1,22 @@
+import { motion } from "framer-motion";
 import { useLanguage } from "@/contexts/AppContext";
 import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import {
+  ArrowRight,
+  Play,
   Code,
   Cloud,
   Shield,
   HeadphonesIcon,
-  ArrowRight,
-  Check,
+  Database,
+  Smartphone,
 } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import Header from "../components/Header";
 import WhatsAppButton from "../components/WhatsAppButton";
+import ServiceCard from "../components/ServiceCard";
+import MethodologySection from "../components/MethodologySection";
+import TechStack from "../components/TechStack";
+import TestimonialsSection from "../components/TestimonialsSection";
 
 const Services = () => {
   const { t } = useLanguage();
@@ -25,51 +25,103 @@ const Services = () => {
   const services = [
     {
       icon: Code,
-      title: isEnglish ? "Development" : "Desenvolvimento",
+      title: isEnglish ? "Custom Development" : "Desenvolvimento Personalizado",
       description: isEnglish
-        ? "Custom solutions for web, mobile and desktop"
-        : "Soluções personalizadas para web, mobile e desktop",
+        ? "Tailored software solutions designed specifically for your business needs and objectives."
+        : "Soluções de software personalizadas projetadas especificamente para suas necessidades e objetivos de negócio.",
       features: isEnglish
         ? [
             "Responsive Web Applications",
-            "Mobile Development (iOS/Android)",
-            "Desktop Systems",
-            "APIs and Microservices",
-            "System Integration",
-            "Custom E-commerce",
+            "Progressive Web Apps (PWA)",
+            "API Development & Integration",
+            "Custom E-commerce Solutions",
+            "Enterprise Software Systems",
+            "Real-time Applications",
+            "Microservices Architecture",
+            "Third-party Integrations",
           ]
         : [
             "Aplicações Web Responsivas",
-            "Desenvolvimento Mobile (iOS/Android)",
-            "Sistemas Desktop",
-            "APIs e Microserviços",
-            "Integração de Sistemas",
-            "E-commerce Personalizado",
+            "Progressive Web Apps (PWA)",
+            "Desenvolvimento e Integração de APIs",
+            "Soluções E-commerce Personalizadas",
+            "Sistemas de Software Empresarial",
+            "Aplicações em Tempo Real",
+            "Arquitetura de Microserviços",
+            "Integrações com Terceiros",
           ],
-      technologies: ["React", "Node.js", "Python", "Flutter", ".NET", "PHP"],
+      technologies: [
+        "React",
+        "Node.js",
+        "TypeScript",
+        "Python",
+        "PostgreSQL",
+        "Docker",
+      ],
+      featured: true,
+    },
+    {
+      icon: Smartphone,
+      title: isEnglish ? "Mobile Development" : "Desenvolvimento Mobile",
+      description: isEnglish
+        ? "Native and cross-platform mobile applications for iOS and Android with outstanding user experience."
+        : "Aplicações móveis nativas e multiplataforma para iOS e Android com experiência de usuário excepcional.",
+      features: isEnglish
+        ? [
+            "iOS Native Apps (Swift)",
+            "Android Native Apps (Kotlin)",
+            "React Native Cross-platform",
+            "Flutter Development",
+            "Mobile App UI/UX Design",
+            "App Store Optimization",
+            "Push Notifications",
+            "Offline Functionality",
+          ]
+        : [
+            "Apps Nativas iOS (Swift)",
+            "Apps Nativas Android (Kotlin)",
+            "React Native Multiplataforma",
+            "Desenvolvimento Flutter",
+            "Design UI/UX para Mobile",
+            "Otimização para App Store",
+            "Notificações Push",
+            "Funcionalidade Offline",
+          ],
+      technologies: [
+        "React Native",
+        "Flutter",
+        "Swift",
+        "Kotlin",
+        "Firebase",
+        "Expo",
+      ],
     },
     {
       icon: Cloud,
       title: isEnglish ? "Cloud & Infrastructure" : "Cloud & Infraestrutura",
       description: isEnglish
-        ? "Modernization and optimization of your IT infrastructure"
-        : "Modernização e otimização da sua infraestrutura de TI",
+        ? "Modern cloud solutions and infrastructure management for scalable, secure, and reliable systems."
+        : "Soluções cloud modernas e gerenciamento de infraestrutura para sistemas escaláveis, seguros e confiáveis.",
       features: isEnglish
         ? [
-            "Cloud Migration",
+            "Cloud Migration Strategy",
             "AWS, Azure, Google Cloud",
-            "DevOps and CI/CD",
-            "24/7 Monitoring",
-            "Backup and Disaster Recovery",
-            "Performance Optimization",
+            "DevOps & CI/CD Pipelines",
+            "Container Orchestration",
+            "Infrastructure as Code",
+            "24/7 Monitoring & Alerts",
+            "Auto-scaling Solutions",
+            "Disaster Recovery Planning",
           ]
         : [
-            "Migração para Cloud",
+            "Estratégia de Migração Cloud",
             "AWS, Azure, Google Cloud",
-            "DevOps e CI/CD",
-            "Monitoramento 24/7",
-            "Backup e Disaster Recovery",
-            "Otimização de Performance",
+            "DevOps & Pipelines CI/CD",
+            "Orquestração de Containers",
+            "Infraestrutura como Código",
+            "Monitoramento 24/7 & Alertas",
+            "Soluções de Auto-scaling",
+            "Planejamento de Disaster Recovery",
           ],
       technologies: [
         "AWS",
@@ -81,277 +133,320 @@ const Services = () => {
       ],
     },
     {
-      icon: Shield,
-      title: isEnglish ? "Information Security" : "Segurança da Informação",
+      icon: Database,
+      title: isEnglish ? "Data & Analytics" : "Dados & Analytics",
       description: isEnglish
-        ? "Complete protection of your data and systems"
-        : "Proteção completa dos seus dados e sistemas",
+        ? "Transform your data into actionable insights with advanced analytics and business intelligence solutions."
+        : "Transforme seus dados em insights acionáveis com análises avançadas e soluções de business intelligence.",
       features: isEnglish
         ? [
-            "Security Audit",
-            "ISO 27001 Implementation",
-            "Vulnerability Management",
-            "GDPR Compliance",
-            "Cloud Security",
-            "Team Training",
+            "Data Warehouse Design",
+            "ETL/ELT Pipeline Development",
+            "Business Intelligence Dashboards",
+            "Machine Learning Models",
+            "Predictive Analytics",
+            "Real-time Data Processing",
+            "Data Governance & Quality",
+            "Custom Reporting Solutions",
           ]
         : [
-            "Auditoria de Segurança",
+            "Design de Data Warehouse",
+            "Desenvolvimento de Pipelines ETL/ELT",
+            "Dashboards de Business Intelligence",
+            "Modelos de Machine Learning",
+            "Análises Preditivas",
+            "Processamento de Dados em Tempo Real",
+            "Governança e Qualidade de Dados",
+            "Soluções de Relatórios Personalizados",
+          ],
+      technologies: [
+        "Python",
+        "R",
+        "Tableau",
+        "Power BI",
+        "Apache Spark",
+        "Snowflake",
+      ],
+    },
+    {
+      icon: Shield,
+      title: isEnglish ? "Cybersecurity" : "Cibersegurança",
+      description: isEnglish
+        ? "Comprehensive security solutions to protect your digital assets and ensure compliance with industry standards."
+        : "Soluções de segurança abrangentes para proteger seus ativos digitais e garantir conformidade com padrões da indústria.",
+      features: isEnglish
+        ? [
+            "Security Audits & Assessments",
+            "Penetration Testing",
+            "ISO 27001 Implementation",
+            "GDPR/LGPD Compliance",
+            "Identity & Access Management",
+            "Endpoint Protection",
+            "Security Incident Response",
+            "Staff Training Programs",
+          ]
+        : [
+            "Auditorias e Avaliações de Segurança",
+            "Testes de Penetração",
             "Implementação ISO 27001",
-            "Gestão de Vulnerabilidades",
-            "Compliance LGPD",
-            "Segurança em Cloud",
-            "Treinamento de Equipes",
+            "Conformidade GDPR/LGPD",
+            "Gestão de Identidade e Acesso",
+            "Proteção de Endpoints",
+            "Resposta a Incidentes de Segurança",
+            "Programas de Treinamento",
           ],
       technologies: [
         "SIEM",
-        "Firewall",
-        "VPN",
-        "SSL/TLS",
-        "Multi-factor Auth",
-        "Encryption",
+        "Splunk",
+        "CrowdStrike",
+        "Okta",
+        "Vault",
+        "Nessus",
       ],
     },
     {
       icon: HeadphonesIcon,
-      title: isEnglish ? "Technical Support" : "Suporte Técnico",
+      title: isEnglish ? "Support & Maintenance" : "Suporte & Manutenção",
       description: isEnglish
-        ? "Specialized support when you need it most"
-        : "Suporte especializado quando você mais precisa",
+        ? "Reliable technical support and proactive maintenance to keep your systems running at peak performance."
+        : "Suporte técnico confiável e manutenção proativa para manter seus sistemas funcionando com performance máxima.",
       features: isEnglish
         ? [
-            "24/7 Support",
-            "Multilingual Help Desk",
-            "Preventive Maintenance",
-            "Guaranteed SLA",
-            "Proactive Monitoring",
-            "Detailed Reports",
+            "24/7 Technical Support",
+            "Proactive System Monitoring",
+            "Performance Optimization",
+            "Security Updates & Patches",
+            "Backup & Recovery Services",
+            "SLA Guarantee",
+            "Multi-language Support",
+            "Dedicated Account Management",
           ]
         : [
-            "Suporte 24/7",
-            "Help Desk Multilíngue",
-            "Manutenção Preventiva",
-            "SLA Garantido",
-            "Monitoramento Proativo",
-            "Relatórios Detalhados",
+            "Suporte Técnico 24/7",
+            "Monitoramento Proativo de Sistemas",
+            "Otimização de Performance",
+            "Atualizações e Patches de Segurança",
+            "Serviços de Backup & Recovery",
+            "Garantia de SLA",
+            "Suporte Multilíngue",
+            "Gerenciamento de Conta Dedicado",
           ],
       technologies: [
         "ServiceNow",
         "Zendesk",
-        "ITIL",
-        "Monitoring Tools",
-        "Remote Support",
-        "Ticketing",
+        "Nagios",
+        "Prometheus",
+        "Grafana",
+        "PagerDuty",
       ],
     },
   ];
 
-  const processSteps = isEnglish
-    ? [
-        {
-          step: "01",
-          title: "Analysis",
-          description: "We understand your needs and objectives",
-        },
-        {
-          step: "02",
-          title: "Planning",
-          description: "We develop the ideal strategy and architecture",
-        },
-        {
-          step: "03",
-          title: "Development",
-          description: "We implement the solution with agile methodology",
-        },
-        {
-          step: "04",
-          title: "Delivery",
-          description: "We perform testing, deployment and training",
-        },
-      ]
-    : [
-        {
-          step: "01",
-          title: "Análise",
-          description: "Entendemos suas necessidades e objetivos",
-        },
-        {
-          step: "02",
-          title: "Planejamento",
-          description: "Desenvolvemos a estratégia e arquitetura ideal",
-        },
-        {
-          step: "03",
-          title: "Desenvolvimento",
-          description: "Implementamos a solução com metodologia ágil",
-        },
-        {
-          step: "04",
-          title: "Entrega",
-          description: "Realizamos testes, deploy e treinamento",
-        },
-      ];
-
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
+    <div className="min-h-screen bg-white dark:bg-gray-900">
       <Header />
 
-      <div className="pt-20">
-        {/* Hero Section */}
-        <section className="py-20 bg-gradient-to-r from-green-600 to-blue-600 text-white">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h1 className="text-4xl lg:text-6xl font-bold mb-6">
-              {isEnglish ? "Our Services" : "Nossos Serviços"}
+      {/* Hero Section */}
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+        {/* Background Video/Image */}
+        <div className="absolute inset-0 z-0">
+          <div className="absolute inset-0 bg-gradient-to-br from-gray-900/80 via-blue-900/60 to-green-900/80 z-10"></div>
+          <img
+            src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1920&h=1080&fit=crop"
+            alt="Technology Background"
+            className="w-full h-full object-cover"
+          />
+        </div>
+
+        {/* Content */}
+        <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, ease: "easeOut" }}
+          >
+            <h1 className="text-5xl lg:text-7xl font-bold mb-8 leading-tight">
+              {isEnglish ? (
+                <>
+                  Technology Solutions
+                  <br />
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-400">
+                    That Transform
+                  </span>
+                </>
+              ) : (
+                <>
+                  Soluções Tecnológicas
+                  <br />
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-400">
+                    Que Transformam
+                  </span>
+                </>
+              )}
             </h1>
-            <p className="text-xl lg:text-2xl max-w-3xl mx-auto">
+            <motion.p
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3, duration: 0.8 }}
+              className="text-xl lg:text-2xl mb-12 max-w-4xl mx-auto leading-relaxed opacity-90"
+            >
               {isEnglish
-                ? "Complete technological solutions to transform your business"
-                : "Soluções tecnológicas completas para transformar seu negócio"}
-            </p>
-          </div>
-        </section>
-
-        {/* Services Grid */}
-        <section className="py-20">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-              {services.map((service, index) => {
-                const Icon = service.icon;
-                return (
-                  <Card
-                    key={service.title}
-                    className="border-0 shadow-xl hover:shadow-2xl transition-shadow duration-300 overflow-hidden bg-white dark:bg-gray-800"
-                  >
-                    <CardHeader className="bg-gradient-to-r from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-700 pb-6">
-                      <div className="flex items-center gap-4 mb-4">
-                        <div className="w-16 h-16 bg-gradient-to-br from-green-100 to-blue-100 dark:from-green-900/30 dark:to-blue-900/30 rounded-2xl flex items-center justify-center">
-                          <Icon className="w-8 h-8 text-green-600 dark:text-green-400" />
-                        </div>
-                        <div>
-                          <CardTitle className="text-2xl font-bold text-gray-900 dark:text-white">
-                            {service.title}
-                          </CardTitle>
-                          <CardDescription className="text-gray-600 dark:text-gray-300 mt-2">
-                            {service.description}
-                          </CardDescription>
-                        </div>
-                      </div>
-                    </CardHeader>
-
-                    <CardContent className="p-6">
-                      <div className="space-y-6">
-                        {/* Features */}
-                        <div>
-                          <h4 className="font-semibold text-gray-900 dark:text-white mb-3">
-                            {isEnglish ? "What we offer:" : "O que oferecemos:"}
-                          </h4>
-                          <ul className="space-y-2">
-                            {service.features.map((feature, featureIndex) => (
-                              <li
-                                key={featureIndex}
-                                className="flex items-center gap-2"
-                              >
-                                <Check className="w-4 h-4 text-green-600 dark:text-green-400 flex-shrink-0" />
-                                <span className="text-gray-700 dark:text-gray-300">
-                                  {feature}
-                                </span>
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-
-                        {/* Technologies */}
-                        <div>
-                          <h4 className="font-semibold text-gray-900 dark:text-white mb-3">
-                            {isEnglish
-                              ? "Technologies used:"
-                              : "Tecnologias utilizadas:"}
-                          </h4>
-                          <div className="flex flex-wrap gap-2">
-                            {service.technologies.map((tech, techIndex) => (
-                              <span
-                                key={techIndex}
-                                className="px-3 py-1 bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-300 rounded-full text-sm font-medium"
-                              >
-                                {tech}
-                              </span>
-                            ))}
-                          </div>
-                        </div>
-
-                        <Button className="w-full bg-green-600 hover:bg-green-700 dark:bg-green-500 dark:hover:bg-green-600 text-white">
-                          {isEnglish ? "Request Quote" : "Solicitar Orçamento"}
-                          <ArrowRight className="w-4 h-4 ml-2" />
-                        </Button>
-                      </div>
-                    </CardContent>
-                  </Card>
-                );
-              })}
-            </div>
-          </div>
-        </section>
-
-        {/* Process Section */}
-        <section className="py-20 bg-white dark:bg-gray-800">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-16">
-              <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 dark:text-white mb-4">
-                {isEnglish ? "Our Methodology" : "Nossa Metodologia"}
-              </h2>
-              <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-                {isEnglish
-                  ? "Structured process to ensure quality and results"
-                  : "Processo estruturado para garantir qualidade e resultados"}
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-              {processSteps.map((phase, index) => (
-                <div key={phase.step} className="text-center">
-                  <div className="w-16 h-16 bg-gradient-to-r from-green-600 to-blue-600 rounded-full flex items-center justify-center text-white font-bold text-xl mx-auto mb-4">
-                    {phase.step}
-                  </div>
-                  <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
-                    {phase.title}
-                  </h3>
-                  <p className="text-gray-600 dark:text-gray-300">
-                    {phase.description}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* CTA Section */}
-        <section className="py-20">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <div className="bg-gradient-to-r from-green-600 to-blue-600 rounded-3xl p-12 text-white">
-              <h2 className="text-3xl lg:text-4xl font-bold mb-4">
-                {isEnglish
-                  ? "Ready to start your project?"
-                  : "Pronto para começar seu projeto?"}
-              </h2>
-              <p className="text-xl mb-8">
-                {isEnglish
-                  ? "Contact us and discover how we can help"
-                  : "Entre em contato conosco e descubra como podemos ajudar"}
-              </p>
+                ? "We create cutting-edge digital solutions that drive growth, efficiency, and innovation for businesses of all sizes."
+                : "Criamos soluções digitais de ponta que impulsionam crescimento, eficiência e inovação para empresas de todos os tamanhos."}
+            </motion.p>
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.6, duration: 0.8 }}
+              className="flex flex-col sm:flex-row gap-6 justify-center items-center"
+            >
+              <Button
+                size="lg"
+                className="bg-gradient-to-r from-green-500 to-blue-500 hover:from-green-600 hover:to-blue-600 text-white border-0 px-8 py-4 text-lg rounded-2xl shadow-2xl hover:shadow-green-500/25 transition-all duration-300"
+              >
+                {isEnglish ? "Start Your Project" : "Iniciar Seu Projeto"}
+                <ArrowRight className="w-5 h-5 ml-2" />
+              </Button>
               <Button
                 size="lg"
                 variant="outline"
-                className="border-white text-white hover:bg-white hover:text-green-600"
+                className="border-2 border-white/20 text-white hover:bg-white/10 px-8 py-4 text-lg rounded-2xl backdrop-blur-sm"
               >
-                {isEnglish ? "Talk to a Specialist" : "Falar com Especialista"}
-                <ArrowRight className="w-5 h-5 ml-2" />
+                <Play className="w-5 h-5 mr-2" />
+                {isEnglish ? "Watch Demo" : "Assistir Demo"}
               </Button>
-            </div>
-          </div>
-        </section>
-      </div>
+            </motion.div>
+          </motion.div>
+        </div>
 
-      {/* WhatsApp Button */}
+        {/* Scroll Indicator */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1.5, duration: 0.8 }}
+          className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20"
+        >
+          <div className="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center">
+            <motion.div
+              animate={{ y: [0, 12, 0] }}
+              transition={{
+                duration: 1.5,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+              className="w-1 h-3 bg-white/60 rounded-full mt-2"
+            ></motion.div>
+          </div>
+        </motion.div>
+      </section>
+
+      {/* Services Overview */}
+      <section className="py-24 bg-gray-50 dark:bg-gray-800">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-20">
+            <motion.h2
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+              className="text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-6"
+            >
+              {isEnglish ? "Our Services" : "Nossos Serviços"}
+            </motion.h2>
+            <motion.p
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.1, duration: 0.8 }}
+              viewport={{ once: true }}
+              className="text-xl text-gray-600 dark:text-gray-300 max-w-4xl mx-auto leading-relaxed"
+            >
+              {isEnglish
+                ? "From custom development to cloud infrastructure, we offer comprehensive technology solutions designed to accelerate your digital transformation."
+                : "Do desenvolvimento personalizado à infraestrutura em nuvem, oferecemos soluções tecnológicas abrangentes projetadas para acelerar sua transformação digital."}
+            </motion.p>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8">
+            {services.map((service, index) => (
+              <ServiceCard
+                key={service.title}
+                icon={service.icon}
+                title={service.title}
+                description={service.description}
+                features={service.features}
+                technologies={service.technologies}
+                index={index}
+                featured={service.featured}
+              />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Methodology Section */}
+      <MethodologySection />
+
+      {/* Tech Stack & Differentials */}
+      <TechStack />
+
+      {/* Testimonials */}
+      <TestimonialsSection />
+
+      {/* Final CTA */}
+      <section className="py-24 bg-gradient-to-br from-gray-900 via-blue-900 to-green-900 relative overflow-hidden">
+        {/* Background Pattern */}
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,rgba(255,255,255,0.15)_1px,transparent_0)] bg-[length:50px_50px]"></div>
+        </div>
+
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+          <motion.h2
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="text-4xl lg:text-5xl font-bold text-white mb-6"
+          >
+            {isEnglish
+              ? "Ready to Transform Your Business?"
+              : "Pronto para Transformar Seu Negócio?"}
+          </motion.h2>
+          <motion.p
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.1, duration: 0.8 }}
+            viewport={{ once: true }}
+            className="text-xl text-white/90 mb-12 leading-relaxed"
+          >
+            {isEnglish
+              ? "Let's discuss how our expertise can help you achieve your technology goals and drive business growth."
+              : "Vamos discutir como nossa expertise pode ajudá-lo a alcançar seus objetivos tecnológicos e impulsionar o crescimento dos negócios."}
+          </motion.p>
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2, duration: 0.8 }}
+            viewport={{ once: true }}
+            className="flex flex-col sm:flex-row gap-6 justify-center"
+          >
+            <Button
+              size="lg"
+              className="bg-white text-gray-900 hover:bg-gray-100 px-8 py-4 text-lg rounded-2xl font-semibold shadow-2xl hover:scale-105 transition-all duration-300"
+            >
+              {isEnglish ? "Get Free Consultation" : "Consultoria Gratuita"}
+              <ArrowRight className="w-5 h-5 ml-2" />
+            </Button>
+            <Button
+              size="lg"
+              variant="outline"
+              className="border-2 border-white/30 text-white hover:bg-white/10 px-8 py-4 text-lg rounded-2xl backdrop-blur-sm"
+            >
+              {isEnglish ? "View Portfolio" : "Ver Portfólio"}
+            </Button>
+          </motion.div>
+        </div>
+      </section>
+
       <WhatsAppButton />
     </div>
   );
