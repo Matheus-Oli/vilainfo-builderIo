@@ -78,7 +78,7 @@ const HeroSection = () => {
             <Button
               size="lg"
               variant="outline"
-              className="border-2 border-white text-white bg-transparent hover:bg-white hover:text-gray-900 px-6 lg:px-8 py-3 lg:py-4 text-base lg:text-lg font-semibold rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200 w-full sm:w-auto min-w-[200px]"
+              className="border-2 border-white/80 dark:border-white text-white bg-transparent hover:bg-white hover:text-gray-900 px-6 lg:px-8 py-3 lg:py-4 text-base lg:text-lg font-semibold rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200 w-full sm:w-auto min-w-[200px] backdrop-blur-sm"
             >
               {t("hero.cta.secondary")}
               <ArrowRight className="w-4 h-4 lg:w-5 lg:h-5 ml-2" />

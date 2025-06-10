@@ -57,7 +57,7 @@ const CtaSection = () => {
             <Button
               size="lg"
               variant="outline"
-              className="cta__secondary-btn border-2 border-white text-white bg-transparent hover:bg-white hover:text-green-600 px-8 py-4 text-lg font-semibold rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200 min-w-[200px]"
+              className="cta__secondary-btn border-2 border-white/80 dark:border-white text-white bg-transparent hover:bg-white hover:text-green-600 px-8 py-4 text-lg font-semibold rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200 min-w-[200px] backdrop-blur-sm"
             >
               {t("cta.secondary")}
               <ArrowRight className="w-5 h-5 ml-2" />
