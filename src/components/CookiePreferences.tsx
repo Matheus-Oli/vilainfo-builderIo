@@ -89,7 +89,7 @@ const CookiePreferences = ({ isOpen, onClose }: CookiePreferencesProps) => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          className="fixed inset-0 z-50 bg-black/50 backdrop-blur-sm flex items-center justify-center p-4"
+          className="fixed inset-0 z-[100] bg-black/50 backdrop-blur-sm flex items-center justify-center p-2 sm:p-4"
           onClick={onClose}
         >
           <motion.div
@@ -97,33 +97,33 @@ const CookiePreferences = ({ isOpen, onClose }: CookiePreferencesProps) => {
             animate={{ scale: 1, opacity: 1, y: 0 }}
             exit={{ scale: 0.95, opacity: 0, y: 20 }}
             transition={{ duration: 0.2 }}
-            className="w-full max-w-4xl max-h-[90vh] overflow-hidden"
+            className="w-full max-w-4xl max-h-[95vh] sm:max-h-[90vh] overflow-hidden mx-auto my-auto"
             onClick={(e) => e.stopPropagation()}
           >
             <Card className="border-0 shadow-2xl bg-white dark:bg-gray-900">
-              <CardHeader className="relative border-b border-gray-200 dark:border-gray-700 pb-6">
+              <CardHeader className="relative border-b border-gray-200 dark:border-gray-700 pb-4 sm:pb-6">
                 <Button
                   variant="ghost"
                   size="sm"
                   onClick={onClose}
-                  className="absolute top-4 right-4 p-2 hover:bg-gray-100 dark:hover:bg-gray-800"
+                  className="absolute top-2 right-2 sm:top-4 sm:right-4 p-2 hover:bg-gray-100 dark:hover:bg-gray-800 z-10"
                   aria-label={isEnglish ? "Close" : "Fechar"}
                 >
-                  <X className="w-5 h-5" />
+                  <X className="w-4 h-4 sm:w-5 sm:h-5" />
                 </Button>
 
-                <CardTitle className="text-2xl font-bold text-gray-900 dark:text-white pr-12">
+                <CardTitle className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white pr-10 sm:pr-12">
                   {isEnglish ? "Cookie Preferences" : "Preferências de Cookies"}
                 </CardTitle>
-                <p className="text-gray-600 dark:text-gray-300 mt-2">
+                <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300 mt-2">
                   {isEnglish
                     ? "Manage your cookie preferences below. You can enable or disable different types of cookies based on your preferences."
                     : "Gerencie suas preferências de cookies abaixo. Você pode habilitar ou desabilitar diferentes tipos de cookies com base em suas preferências."}
                 </p>
               </CardHeader>
 
-              <CardContent className="p-0 max-h-[calc(90vh-200px)] overflow-y-auto">
-                <div className="p-6 space-y-6">
+              <CardContent className="p-0 max-h-[calc(95vh-280px)] sm:max-h-[calc(90vh-200px)] overflow-y-auto">
+                <div className="p-4 sm:p-6 space-y-4 sm:space-y-6">
                   {/* Cookie Categories */}
                   {categories.map((category) => {
                     const Icon = getCategoryIcon(category.id);
@@ -132,44 +132,49 @@ const CookiePreferences = ({ isOpen, onClose }: CookiePreferencesProps) => {
                     return (
                       <div
                         key={category.id}
-                        className="border border-gray-200 dark:border-gray-700 rounded-xl p-6 hover:border-gray-300 dark:hover:border-gray-600 transition-colors"
+                        className="border border-gray-200 dark:border-gray-700 rounded-xl p-4 sm:p-6 hover:border-gray-300 dark:hover:border-gray-600 transition-colors"
                       >
-                        <div className="flex items-start gap-4">
+                        <div className="flex items-start gap-3 sm:gap-4">
                           <div
-                            className={`w-12 h-12 bg-gradient-to-br ${colorClass} rounded-xl flex items-center justify-center flex-shrink-0`}
+                            className={`w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br ${colorClass} rounded-xl flex items-center justify-center flex-shrink-0`}
                           >
-                            <Icon className="w-6 h-6 text-white" />
+                            <Icon className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
                           </div>
 
                           <div className="flex-1 min-w-0">
-                            <div className="flex items-center justify-between mb-3">
-                              <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
+                            <div className="flex items-start sm:items-center justify-between mb-3 gap-2">
+                              <h3 className="text-base sm:text-lg font-semibold text-gray-900 dark:text-white leading-tight">
                                 {category.name}
                               </h3>
-                              <div className="flex items-center gap-3">
-                                {category.required && (
-                                  <span className="text-xs bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-300 px-2 py-1 rounded-full font-medium">
-                                    {isEnglish ? "Required" : "Obrigatório"}
-                                  </span>
-                                )}
-                                <Switch
-                                  checked={preferences[category.id] || false}
-                                  onCheckedChange={(checked) =>
-                                    handlePreferenceChange(category.id, checked)
-                                  }
-                                  disabled={category.required}
-                                  className="data-[state=checked]:bg-green-600"
-                                />
+                              <div className="flex items-center gap-2 sm:gap-3 flex-shrink-0">
+                                <div className="flex flex-col sm:flex-row items-end sm:items-center gap-2">
+                                  {category.required && (
+                                    <span className="text-xs bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-300 px-2 py-1 rounded-full font-medium whitespace-nowrap">
+                                      {isEnglish ? "Required" : "Obrigatório"}
+                                    </span>
+                                  )}
+                                  <Switch
+                                    checked={preferences[category.id] || false}
+                                    onCheckedChange={(checked) =>
+                                      handlePreferenceChange(
+                                        category.id,
+                                        checked,
+                                      )
+                                    }
+                                    disabled={category.required}
+                                    className="data-[state=checked]:bg-green-600"
+                                  />
+                                </div>
                               </div>
                             </div>
-                            <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
+                            <p className="text-gray-600 dark:text-gray-300 text-sm sm:text-sm leading-relaxed">
                               {category.description}
                             </p>
 
                             {/* Additional Info for Each Category */}
                             {category.id === "analytics" && (
-                              <div className="mt-3 p-3 bg-blue-50 dark:bg-blue-900/20 rounded-lg border border-blue-200 dark:border-blue-800">
-                                <p className="text-xs text-blue-800 dark:text-blue-200">
+                              <div className="mt-3 p-2 sm:p-3 bg-blue-50 dark:bg-blue-900/20 rounded-lg border border-blue-200 dark:border-blue-800">
+                                <p className="text-xs text-blue-800 dark:text-blue-200 leading-relaxed">
                                   {isEnglish
                                     ? "These cookies help us understand how visitors interact with our website by collecting and reporting information anonymously."
                                     : "Estes cookies nos ajudam a entender como os visitantes interagem com nosso site coletando e relatando informações de forma anônima."}
@@ -178,8 +183,8 @@ const CookiePreferences = ({ isOpen, onClose }: CookiePreferencesProps) => {
                             )}
 
                             {category.id === "marketing" && (
-                              <div className="mt-3 p-3 bg-purple-50 dark:bg-purple-900/20 rounded-lg border border-purple-200 dark:border-purple-800">
-                                <p className="text-xs text-purple-800 dark:text-purple-200">
+                              <div className="mt-3 p-2 sm:p-3 bg-purple-50 dark:bg-purple-900/20 rounded-lg border border-purple-200 dark:border-purple-800">
+                                <p className="text-xs text-purple-800 dark:text-purple-200 leading-relaxed">
                                   {isEnglish
                                     ? "These cookies may be set through our site by our advertising partners to build a profile of your interests."
                                     : "Estes cookies podem ser definidos através do nosso site por nossos parceiros de publicidade para construir um perfil de seus interesses."}
@@ -193,13 +198,13 @@ const CookiePreferences = ({ isOpen, onClose }: CookiePreferencesProps) => {
                   })}
 
                   {/* Legal Information */}
-                  <div className="border-t border-gray-200 dark:border-gray-700 pt-6">
-                    <div className="bg-gray-50 dark:bg-gray-800 rounded-xl p-6">
-                      <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-3 flex items-center gap-2">
-                        <Info className="w-5 h-5 text-blue-600 dark:text-blue-400" />
+                  <div className="border-t border-gray-200 dark:border-gray-700 pt-4 sm:pt-6">
+                    <div className="bg-gray-50 dark:bg-gray-800 rounded-xl p-4 sm:p-6">
+                      <h4 className="text-base sm:text-lg font-semibold text-gray-900 dark:text-white mb-3 flex items-center gap-2">
+                        <Info className="w-4 h-4 sm:w-5 sm:h-5 text-blue-600 dark:text-blue-400" />
                         {isEnglish ? "Your Rights" : "Seus Direitos"}
                       </h4>
-                      <div className="space-y-2 text-sm text-gray-600 dark:text-gray-300">
+                      <div className="space-y-2 text-xs sm:text-sm text-gray-600 dark:text-gray-300">
                         <p>
                           {isEnglish
                             ? "• You can change your preferences at any time"
@@ -250,25 +255,28 @@ const CookiePreferences = ({ isOpen, onClose }: CookiePreferencesProps) => {
               </CardContent>
 
               {/* Footer Actions */}
-              <div className="border-t border-gray-200 dark:border-gray-700 p-6">
-                <div className="flex flex-col sm:flex-row gap-3 justify-end">
+              <div className="border-t border-gray-200 dark:border-gray-700 p-4 sm:p-6 bg-gray-50/50 dark:bg-gray-800/50">
+                <div className="flex flex-col sm:flex-row gap-2 sm:gap-3 sm:justify-end">
                   <Button
                     variant="outline"
                     onClick={handleRejectAll}
-                    className="border-gray-300 dark:border-gray-600"
+                    className="border-gray-300 dark:border-gray-600 text-sm sm:text-base h-10 sm:h-auto"
+                    size="sm"
                   >
                     {isEnglish ? "Reject All" : "Rejeitar Todos"}
                   </Button>
                   <Button
                     variant="outline"
                     onClick={handleAcceptAll}
-                    className="border-green-300 dark:border-green-600 text-green-700 dark:text-green-400 hover:bg-green-50 dark:hover:bg-green-900/20"
+                    className="border-green-300 dark:border-green-600 text-green-700 dark:text-green-400 hover:bg-green-50 dark:hover:bg-green-900/20 text-sm sm:text-base h-10 sm:h-auto"
+                    size="sm"
                   >
                     {isEnglish ? "Accept All" : "Aceitar Todos"}
                   </Button>
                   <Button
                     onClick={handleSave}
-                    className="bg-gradient-to-r from-green-600 to-blue-600 hover:from-green-700 hover:to-blue-700 text-white border-0"
+                    className="bg-gradient-to-r from-green-600 to-blue-600 hover:from-green-700 hover:to-blue-700 text-white border-0 text-sm sm:text-base h-10 sm:h-auto"
+                    size="sm"
                   >
                     <Save className="w-4 h-4 mr-2" />
                     {isEnglish ? "Save Preferences" : "Salvar Preferências"}
