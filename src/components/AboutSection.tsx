@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { useLanguage } from "@/contexts/AppContext";
 import { cn } from "@/lib/utils";
@@ -67,13 +68,15 @@ const AboutSection = () => {
               <p>{t("about.description2")}</p>
             </div>
 
-            <Button
-              size="lg"
-              className="about__cta bg-green-600 hover:bg-green-700 dark:bg-green-500 dark:hover:bg-green-600 text-white px-8 py-4 text-lg rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200"
-            >
-              {t("about.cta")}
-              <ArrowRight className="w-5 h-5 ml-2" />
-            </Button>
+            <Link to="/about">
+              <Button
+                size="lg"
+                className="about__cta bg-green-600 hover:bg-green-700 dark:bg-green-500 dark:hover:bg-green-600 text-white px-8 py-4 text-lg rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200"
+              >
+                {t("about.cta")}
+                <ArrowRight className="w-5 h-5 ml-2" />
+              </Button>
+            </Link>
           </div>
         </div>
       </div>

@@ -1,13 +1,14 @@
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 import AnimatedCounter from "./AnimatedCounter";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { useLanguage } from "@/contexts/AppContext";
+import { useTypingAnimation } from "@/hooks/useTypingAnimation";
 import { cn } from "@/lib/utils";
 
 const HeroSection = () => {
-  const [currentWordIndex, setCurrentWordIndex] = useState(0);
   const { ref, isVisible } = useScrollAnimation({ threshold: 0.2 });
   const { t } = useLanguage();
 
@@ -18,13 +19,12 @@ const HeroSection = () => {
     t("words.modern"),
   ];
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentWordIndex((prev) => (prev + 1) % rotatingWords.length);
-    }, 3000);
-
-    return () => clearInterval(interval);
-  }, [rotatingWords.length]);
+  const { currentText, showCursor } = useTypingAnimation({
+    words: rotatingWords,
+    typingSpeed: 150,
+    erasingSpeed: 100,
+    delayBetweenWords: 2500,
+  });
 
   return (
     <section
@@ -54,7 +54,12 @@ const HeroSection = () => {
             {t("hero.title.solutions")}{" "}
             <span className="hero__rotating-word relative">
               <span className="text-green-400 relative z-10 drop-shadow-lg">
-                {rotatingWords[currentWordIndex]}
+                {currentText}
+                <span
+                  className={`${showCursor ? "opacity-100" : "opacity-0"} transition-opacity duration-100`}
+                >
+                  |
+                </span>
               </span>
               <span className="absolute inset-0 bg-green-500/20 rounded-lg -z-10 animate-pulse blur-sm"></span>
             </span>
@@ -67,22 +72,26 @@ const HeroSection = () => {
           </p>
 
           <div className="hero__cta flex flex-col sm:flex-row gap-4 items-center justify-center lg:justify-start px-4 lg:px-0">
-            <Button
-              size="lg"
-              className="bg-green-600 hover:bg-green-700 text-white px-6 lg:px-8 py-3 lg:py-4 text-base lg:text-lg font-semibold rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200 w-full sm:w-auto min-w-[200px]"
-            >
-              {t("hero.cta.primary")}
-              <ArrowRight className="w-4 h-4 lg:w-5 lg:h-5 ml-2" />
-            </Button>
+            <Link to="/contact">
+              <Button
+                size="lg"
+                className="bg-green-600 hover:bg-green-700 text-white px-6 lg:px-8 py-3 lg:py-4 text-base lg:text-lg font-semibold rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200 w-full sm:w-auto min-w-[200px]"
+              >
+                {t("hero.cta.primary")}
+                <ArrowRight className="w-4 h-4 lg:w-5 lg:h-5 ml-2" />
+              </Button>
+            </Link>
 
-            <Button
-              size="lg"
-              variant="outline"
-              className="border-2 border-white text-white bg-white/10 hover:bg-white hover:text-gray-900 px-6 lg:px-8 py-3 lg:py-4 text-base lg:text-lg font-semibold rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200 w-full sm:w-auto min-w-[200px] backdrop-blur-sm"
-            >
-              {t("hero.cta.secondary")}
-              <ArrowRight className="w-4 h-4 lg:w-5 lg:h-5 ml-2" />
-            </Button>
+            <Link to="/services">
+              <Button
+                size="lg"
+                variant="outline"
+                className="border-2 border-white text-white bg-white/10 hover:bg-white hover:text-gray-900 px-6 lg:px-8 py-3 lg:py-4 text-base lg:text-lg font-semibold rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200 w-full sm:w-auto min-w-[200px] backdrop-blur-sm"
+              >
+                {t("hero.cta.secondary")}
+                <ArrowRight className="w-4 h-4 lg:w-5 lg:h-5 ml-2" />
+              </Button>
+            </Link>
           </div>
         </div>
       </div>

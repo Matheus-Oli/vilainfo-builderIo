@@ -88,9 +88,11 @@ const Header = () => {
           <div className="header__controls hidden lg:flex items-center space-x-3">
             <ThemeToggle />
             <LanguageToggle />
-            <Button className="bg-green-600 hover:bg-green-700 dark:bg-green-500 dark:hover:bg-green-600 text-white px-4 lg:px-6 py-2 rounded-full ml-2 lg:ml-4 text-sm lg:text-base">
-              {t("header.cta")}
-            </Button>
+            <Link to="/contact">
+              <Button className="bg-green-600 hover:bg-green-700 dark:bg-green-500 dark:hover:bg-green-600 text-white px-4 lg:px-6 py-2 rounded-full ml-2 lg:ml-4 text-sm lg:text-base">
+                {t("header.cta")}
+              </Button>
+            </Link>
           </div>
 
           {/* Mobile Controls */}
@@ -130,12 +132,14 @@ const Header = () => {
               </Link>
             ))}
             <div className="border-t border-gray-200 dark:border-gray-700 pt-4 mt-4 px-4">
-              <Button
-                className="w-full bg-green-600 hover:bg-green-700 dark:bg-green-500 dark:hover:bg-green-600 text-white py-3 rounded-full"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                {t("header.cta")}
-              </Button>
+              <Link to="/contact">
+                <Button
+                  className="w-full bg-green-600 hover:bg-green-700 dark:bg-green-500 dark:hover:bg-green-600 text-white py-3 rounded-full"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  {t("header.cta")}
+                </Button>
+              </Link>
             </div>
           </div>
         </nav>

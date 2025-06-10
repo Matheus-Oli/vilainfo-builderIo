@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Phone, MapPin } from "lucide-react";
+import { Link } from "react-router-dom";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { useLanguage } from "@/contexts/AppContext";
 import { cn } from "@/lib/utils";
@@ -46,22 +47,26 @@ const CtaSection = () => {
                 : "opacity-0 translate-y-8",
             )}
           >
-            <Button
-              size="lg"
-              className="cta__primary-btn bg-white text-green-600 hover:bg-gray-100 px-8 py-4 text-lg font-semibold rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200 min-w-[200px]"
-            >
-              {t("cta.primary")}
-              <ArrowRight className="w-5 h-5 ml-2" />
-            </Button>
+            <Link to="/contact">
+              <Button
+                size="lg"
+                className="cta__primary-btn bg-white text-green-600 hover:bg-gray-100 px-8 py-4 text-lg font-semibold rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200 min-w-[200px]"
+              >
+                {t("cta.primary")}
+                <ArrowRight className="w-5 h-5 ml-2" />
+              </Button>
+            </Link>
 
-            <Button
-              size="lg"
-              variant="outline"
-              className="cta__secondary-btn border-2 border-white/80 dark:border-white text-white bg-transparent hover:bg-white hover:text-green-600 px-8 py-4 text-lg font-semibold rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200 min-w-[200px] backdrop-blur-sm"
-            >
-              {t("cta.secondary")}
-              <ArrowRight className="w-5 h-5 ml-2" />
-            </Button>
+            <Link to="/services">
+              <Button
+                size="lg"
+                variant="outline"
+                className="cta__secondary-btn border-2 border-white text-white bg-white/10 hover:bg-white hover:text-green-600 px-8 py-4 text-lg font-semibold rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200 min-w-[200px] backdrop-blur-sm"
+              >
+                {t("cta.secondary")}
+                <ArrowRight className="w-5 h-5 ml-2" />
+              </Button>
+            </Link>
           </div>
         </div>
 

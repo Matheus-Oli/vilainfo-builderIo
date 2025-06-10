@@ -10,7 +10,10 @@ const Footer = () => {
         <div className="footer__content grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Company Info */}
           <div className="footer__company col-span-1 md:col-span-2">
-            <div className="flex items-center mb-4">
+            <Link
+              to="/"
+              className="flex items-center mb-4 hover:opacity-80 transition-opacity duration-200"
+            >
               <div className="w-10 h-10 bg-gradient-to-r from-blue-500 via-green-500 to-blue-600 rounded-full flex items-center justify-center mr-3 relative">
                 <div className="w-8 h-8 bg-white rounded-full flex items-center justify-center">
                   <div className="w-6 h-6 bg-gradient-to-r from-blue-500 to-green-500 rounded-full"></div>
@@ -25,7 +28,7 @@ const Footer = () => {
                   soluções e corporativas
                 </span>
               </div>
-            </div>
+            </Link>
             <p className="footer__description text-gray-400 mb-6 max-w-md">
               {t("footer.description")}
             </p>
