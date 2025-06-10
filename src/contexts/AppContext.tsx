@@ -245,31 +245,46 @@ const translations = {
 export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
-  const [language, setLanguage] = useState<"pt" | "en">("pt");
+  const [language, setLanguage] = useState<"pt" | "en">(() => {
+    // Initialize from localStorage immediately to prevent hydration issues
+    if (typeof window !== "undefined") {
+      const saved = localStorage.getItem("vilainfo-language");
+      if (saved === "pt" || saved === "en") {
+        return saved;
+      }
+    }
+    return "pt";
+  });
+  const [isInitialized, setIsInitialized] = useState(false);
 
   useEffect(() => {
-    const saved = localStorage.getItem("vilainfo-language");
-    if (saved && (saved === "pt" || saved === "en")) {
-      setLanguage(saved);
-    }
+    // Mark as initialized after first render
+    setIsInitialized(true);
   }, []);
 
   const handleSetLanguage = (lang: "pt" | "en") => {
     setLanguage(lang);
-    localStorage.setItem("vilainfo-language", lang);
+    if (typeof window !== "undefined") {
+      localStorage.setItem("vilainfo-language", lang);
+    }
   };
 
   const t = (key: string): string => {
-    return (
-      translations[language][key as keyof (typeof translations)["pt"]] || key
-    );
+    try {
+      return (
+        translations[language][key as keyof (typeof translations)["pt"]] || key
+      );
+    } catch (error) {
+      console.warn("Translation error:", error);
+      return key;
+    }
   };
 
   return (
     <LanguageContext.Provider
       value={{ language, setLanguage: handleSetLanguage, t }}
     >
-      {children}
+      {isInitialized ? children : null}
     </LanguageContext.Provider>
   );
 };
