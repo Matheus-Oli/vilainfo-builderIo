@@ -3,6 +3,7 @@ import { useLanguage } from "@/contexts/AppContext";
 import { ArrowRight, TrendingUp, Users, Globe, Award } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { Link } from "react-router-dom";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import WhatsAppButton from "../components/WhatsAppButton";
@@ -387,20 +388,26 @@ const Clients = () => {
             viewport={{ once: true }}
             className="flex flex-col sm:flex-row gap-6 justify-center"
           >
-            <Button
-              size="lg"
-              className="bg-white text-gray-900 hover:bg-gray-100 px-8 py-4 text-lg rounded-2xl font-semibold shadow-2xl hover:scale-105 transition-all duration-300"
-            >
-              {isEnglish ? "Start Your Project" : "Iniciar Seu Projeto"}
-              <ArrowRight className="w-5 h-5 ml-2" />
-            </Button>
-            <Button
-              size="lg"
-              variant="outline"
-              className="border-2 border-white/30 text-white hover:bg-white/10 px-8 py-4 text-lg rounded-2xl backdrop-blur-sm"
-            >
-              {isEnglish ? "Download Case Studies" : "Baixar Estudos de Caso"}
-            </Button>
+            <Link to="/contact">
+              <Button
+                size="lg"
+                className="bg-white text-gray-900 hover:bg-gray-100 px-8 py-4 text-lg rounded-2xl font-semibold shadow-2xl hover:scale-105 transition-all duration-300"
+              >
+                {isEnglish ? "Start Your Project" : "Iniciar Seu Projeto"}
+                <ArrowRight className="w-5 h-5 ml-2" />
+              </Button>
+            </Link>
+            <Link to="/contact">
+              <Button
+                size="lg"
+                variant="outline"
+                className="border-2 border-white/30 text-white hover:bg-white/10 px-8 py-4 text-lg rounded-2xl backdrop-blur-sm"
+              >
+                {isEnglish
+                  ? "Request Case Studies"
+                  : "Solicitar Estudos de Caso"}
+              </Button>
+            </Link>
           </motion.div>
         </div>
       </section>
