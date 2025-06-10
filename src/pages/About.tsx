@@ -91,11 +91,11 @@ const About = () => {
           {/* Background */}
           <div className="absolute inset-0 z-0">
             <div className="absolute inset-0 bg-gradient-to-br from-gray-900/90 via-blue-900/80 to-green-900/90 z-10"></div>
-          <img
-            src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1920&h=1080&fit=crop"
-            alt="About Background"
-            className="w-full h-full object-cover"
-          />
+            <img
+              src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1920&h=1080&fit=crop"
+              alt="About Background"
+              className="w-full h-full object-cover"
+            />
           </div>
 
           {/* Background Pattern */}
@@ -448,9 +448,10 @@ const About = () => {
                   </p>
                 </div>
               </motion.div>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </div>
 
       <Footer />
       <WhatsAppButton />

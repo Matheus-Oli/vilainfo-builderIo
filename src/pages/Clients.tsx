@@ -4,6 +4,7 @@ import { ArrowRight, TrendingUp, Users, Globe, Award } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import Header from "../components/Header";
+import Footer from "../components/Footer";
 import WhatsAppButton from "../components/WhatsAppButton";
 import ClientShowcase from "../components/ClientShowcase";
 import TestimonialsSection from "../components/TestimonialsSection";
@@ -404,6 +405,7 @@ const Clients = () => {
         </div>
       </section>
 
+      <Footer />
       <WhatsAppButton />
     </div>
   );
