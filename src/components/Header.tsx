@@ -45,16 +45,16 @@ const Header = () => {
   return (
     <header className="header fixed top-0 left-0 right-0 z-50 bg-white/95 dark:bg-gray-900/95 backdrop-blur-sm border-b border-gray-200 dark:border-gray-700 shadow-sm transition-colors">
       <div className="header__container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="header__content flex items-center justify-between h-16 lg:h-20">
+        <div className="header__content flex items-center justify-between h-14 sm:h-16 lg:h-20">
           {/* Logo */}
           <Link
             to="/"
             className="header__logo flex items-center hover:opacity-80 transition-opacity duration-200"
           >
             <div className="flex items-center">
-              <div className="w-10 h-10 bg-gradient-to-r from-blue-500 via-green-500 to-blue-600 rounded-full flex items-center justify-center mr-3 relative">
-                <div className="w-8 h-8 bg-white rounded-full flex items-center justify-center">
-                  <div className="w-6 h-6 bg-gradient-to-r from-blue-500 to-green-500 rounded-full"></div>
+              <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-r from-blue-500 via-green-500 to-blue-600 rounded-full flex items-center justify-center mr-2 sm:mr-3 relative">
+                <div className="w-6 h-6 sm:w-8 sm:h-8 bg-white rounded-full flex items-center justify-center">
+                  <div className="w-4 h-4 sm:w-6 sm:h-6 bg-gradient-to-r from-blue-500 to-green-500 rounded-full"></div>
                 </div>
               </div>
               <div className="flex flex-col">
@@ -77,7 +77,7 @@ const Header = () => {
               <Link
                 key={item.label}
                 to={item.href}
-                className="header__nav-link text-gray-700 dark:text-gray-300 hover:text-green-600 dark:hover:text-green-400 font-medium transition-colors duration-200 py-2 px-1"
+                className="header__nav-link text-sm lg:text-base text-gray-700 dark:text-gray-300 hover:text-green-600 dark:hover:text-green-400 font-medium transition-colors duration-200 py-2 px-1"
               >
                 {item.label}
               </Link>
@@ -88,7 +88,7 @@ const Header = () => {
           <div className="header__controls hidden lg:flex items-center space-x-3">
             <ThemeToggle />
             <LanguageToggle />
-            <Button className="bg-green-600 hover:bg-green-700 dark:bg-green-500 dark:hover:bg-green-600 text-white px-6 py-2 rounded-full ml-4">
+            <Button className="bg-green-600 hover:bg-green-700 dark:bg-green-500 dark:hover:bg-green-600 text-white px-4 lg:px-6 py-2 rounded-full ml-2 lg:ml-4 text-sm lg:text-base">
               {t("header.cta")}
             </Button>
           </div>
