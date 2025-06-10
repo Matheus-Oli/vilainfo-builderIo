@@ -89,7 +89,7 @@ const CookiePreferences = ({ isOpen, onClose }: CookiePreferencesProps) => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          className="fixed inset-0 z-[100] bg-black/50 backdrop-blur-sm flex items-center justify-center p-2 sm:p-4"
+          className="fixed inset-0 z-[9999] bg-black/50 backdrop-blur-sm flex items-start sm:items-center justify-center p-2 sm:p-4 pt-4 sm:pt-4 pb-4 overflow-y-auto"
           onClick={onClose}
         >
           <motion.div
@@ -97,10 +97,10 @@ const CookiePreferences = ({ isOpen, onClose }: CookiePreferencesProps) => {
             animate={{ scale: 1, opacity: 1, y: 0 }}
             exit={{ scale: 0.95, opacity: 0, y: 20 }}
             transition={{ duration: 0.2 }}
-            className="w-full max-w-4xl max-h-[95vh] sm:max-h-[90vh] overflow-hidden mx-auto my-auto"
+            className="w-full max-w-4xl max-h-[calc(100vh-2rem)] sm:max-h-[calc(100vh-4rem)] overflow-hidden mx-auto my-auto flex flex-col"
             onClick={(e) => e.stopPropagation()}
           >
-            <Card className="border-0 shadow-2xl bg-white dark:bg-gray-900">
+            <Card className="border-0 shadow-2xl bg-white dark:bg-gray-900 flex flex-col h-full overflow-hidden">
               <CardHeader className="relative border-b border-gray-200 dark:border-gray-700 pb-4 sm:pb-6">
                 <Button
                   variant="ghost"
@@ -122,7 +122,7 @@ const CookiePreferences = ({ isOpen, onClose }: CookiePreferencesProps) => {
                 </p>
               </CardHeader>
 
-              <CardContent className="p-0 max-h-[calc(95vh-280px)] sm:max-h-[calc(90vh-200px)] overflow-y-auto">
+              <CardContent className="p-0 flex-1 overflow-y-auto">
                 <div className="p-4 sm:p-6 space-y-4 sm:space-y-6">
                   {/* Cookie Categories */}
                   {categories.map((category) => {
@@ -255,7 +255,7 @@ const CookiePreferences = ({ isOpen, onClose }: CookiePreferencesProps) => {
               </CardContent>
 
               {/* Footer Actions */}
-              <div className="border-t border-gray-200 dark:border-gray-700 p-4 sm:p-6 bg-gray-50/50 dark:bg-gray-800/50">
+              <div className="border-t border-gray-200 dark:border-gray-700 p-4 sm:p-6 bg-gray-50/50 dark:bg-gray-800/50 flex-shrink-0">
                 <div className="flex flex-col sm:flex-row gap-2 sm:gap-3 sm:justify-end">
                   <Button
                     variant="outline"

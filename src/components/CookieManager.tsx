@@ -88,7 +88,7 @@ const CookieManagerComponent = ({
 
   if (!showDetails) {
     return (
-      <div className="fixed bottom-4 right-4 z-40">
+      <div className="fixed bottom-4 right-4 z-[50]">
         <Button
           onClick={() => setShowPreferences(true)}
           variant="outline"
