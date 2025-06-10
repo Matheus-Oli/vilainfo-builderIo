@@ -145,7 +145,7 @@ const MethodologySection = () => {
                   className="relative group"
                 >
                   {/* Step Card */}
-                  <div className="bg-white dark:bg-gray-900 rounded-3xl p-6 shadow-lg border border-gray-100 dark:border-gray-700 hover:shadow-2xl transition-all duration-500 group-hover:scale-105 relative z-10 min-h-[350px] flex flex-col">
+                  <div className="bg-white dark:bg-gray-900 rounded-3xl p-6 shadow-lg border border-gray-100 dark:border-gray-700 hover:shadow-2xl transition-all duration-500 group-hover:scale-105 relative z-10 min-h-[350px] flex flex-col h-full">
                     {/* Step Number & Icon */}
                     <div className="flex items-center justify-between mb-6">
                       <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-blue-500 rounded-2xl flex items-center justify-center text-white font-bold text-lg group-hover:scale-110 transition-transform duration-300">

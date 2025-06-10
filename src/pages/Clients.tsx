@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { useLanguage } from "@/contexts/AppContext";
-import { ArrowRight, TrendingUp, Users, Globe, Award } from "lucide-react";
+import { ArrowRight, TrendingUp, Users, Globe, Award, Play } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Link } from "react-router-dom";
@@ -401,11 +401,9 @@ const Clients = () => {
               <Button
                 size="lg"
                 variant="outline"
-                className="border-2 border-white/80 dark:border-white/30 text-white hover:bg-white/20 dark:hover:bg-white/10 px-8 py-4 text-lg rounded-2xl backdrop-blur-sm shadow-lg"
+                className="border-2 border-white text-white bg-white/10 hover:bg-white/20 hover:text-white px-8 py-4 text-lg rounded-2xl backdrop-blur-sm shadow-lg"
               >
-                {isEnglish
-                  ? "Request Case Studies"
-                  : "Solicitar Estudos de Caso"}
+                {isEnglish ? "Request Case Studies" : "Solicitar Estudos de Caso"}
               </Button>
             </Link>
           </motion.div>
