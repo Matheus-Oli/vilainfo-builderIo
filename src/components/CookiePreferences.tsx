@@ -89,7 +89,7 @@ const CookiePreferences = ({ isOpen, onClose }: CookiePreferencesProps) => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          className="fixed inset-0 z-[9999] bg-black/50 backdrop-blur-sm flex items-center justify-center sm:p-4 overflow-hidden"
+          className="fixed inset-0 z-[9999] bg-black/50 backdrop-blur-sm flex items-start sm:items-center justify-center sm:p-4"
           onClick={onClose}
         >
           <motion.div
@@ -97,11 +97,11 @@ const CookiePreferences = ({ isOpen, onClose }: CookiePreferencesProps) => {
             animate={{ scale: 1, opacity: 1, y: 0 }}
             exit={{ scale: 0.95, opacity: 0, y: 20 }}
             transition={{ duration: 0.2 }}
-            className="w-full h-full sm:w-full sm:max-w-4xl sm:h-[85vh] sm:max-h-[85vh] overflow-hidden mx-auto my-auto flex flex-col sm:rounded-2xl"
+            className="w-full min-h-screen max-h-screen sm:min-h-0 sm:max-h-[90vh] sm:w-full sm:max-w-4xl overflow-hidden mx-auto flex flex-col sm:rounded-2xl sm:my-auto"
             onClick={(e) => e.stopPropagation()}
           >
             <Card className="border-0 sm:shadow-2xl bg-white dark:bg-gray-900 flex flex-col h-full overflow-hidden sm:rounded-2xl">
-              <CardHeader className="relative border-b border-gray-200 dark:border-gray-700 pb-2 sm:pb-6 pt-4 sm:pt-6 flex-shrink-0 safe-area-top">
+              <CardHeader className="relative border-b border-gray-200 dark:border-gray-700 pb-3 sm:pb-6 pt-6 sm:pt-6 flex-shrink-0">
                 <Button
                   variant="ghost"
                   size="sm"
@@ -122,8 +122,11 @@ const CookiePreferences = ({ isOpen, onClose }: CookiePreferencesProps) => {
                 </p>
               </CardHeader>
 
-              <CardContent className="p-0 flex-1 overflow-y-auto min-h-0">
-                <div className="p-4 sm:p-6 space-y-3 sm:space-y-6">
+              <CardContent
+                className="p-0 flex-1 overflow-y-auto min-h-0"
+                style={{ maxHeight: "calc(100vh - 180px)" }}
+              >
+                <div className="p-4 sm:p-6 space-y-3 sm:space-y-6 pb-8">
                   {/* Cookie Categories */}
                   {categories.map((category) => {
                     const Icon = getCategoryIcon(category.id);
@@ -263,12 +266,12 @@ const CookiePreferences = ({ isOpen, onClose }: CookiePreferencesProps) => {
               </CardContent>
 
               {/* Footer Actions */}
-              <div className="border-t border-gray-200 dark:border-gray-700 p-4 sm:p-6 bg-gray-50/50 dark:bg-gray-800/50 flex-shrink-0 safe-area-bottom">
+              <div className="border-t border-gray-200 dark:border-gray-700 p-4 sm:p-6 bg-white dark:bg-gray-900 flex-shrink-0 sticky bottom-0 z-10 shadow-lg sm:shadow-none sm:bg-gray-50/50 sm:dark:bg-gray-800/50">
                 <div className="flex flex-col sm:flex-row gap-2 sm:gap-3 sm:justify-end">
                   <Button
                     variant="outline"
                     onClick={handleRejectAll}
-                    className="border-gray-300 dark:border-gray-600 text-sm h-9 sm:h-10"
+                    className="border-gray-300 dark:border-gray-600 text-sm h-10 sm:h-10 flex-1 sm:flex-none"
                     size="sm"
                   >
                     {isEnglish ? "Reject All" : "Rejeitar Todos"}
@@ -276,18 +279,23 @@ const CookiePreferences = ({ isOpen, onClose }: CookiePreferencesProps) => {
                   <Button
                     variant="outline"
                     onClick={handleAcceptAll}
-                    className="border-green-300 dark:border-green-600 text-green-700 dark:text-green-400 hover:bg-green-50 dark:hover:bg-green-900/20 text-sm h-9 sm:h-10"
+                    className="border-green-300 dark:border-green-600 text-green-700 dark:text-green-400 hover:bg-green-50 dark:hover:bg-green-900/20 text-sm h-10 sm:h-10 flex-1 sm:flex-none"
                     size="sm"
                   >
                     {isEnglish ? "Accept All" : "Aceitar Todos"}
                   </Button>
                   <Button
                     onClick={handleSave}
-                    className="bg-gradient-to-r from-green-600 to-blue-600 hover:from-green-700 hover:to-blue-700 text-white border-0 text-sm h-9 sm:h-10"
+                    className="bg-gradient-to-r from-green-600 to-blue-600 hover:from-green-700 hover:to-blue-700 text-white border-0 text-sm h-10 sm:h-10 flex-1 sm:flex-none"
                     size="sm"
                   >
-                    <Save className="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2" />
-                    {isEnglish ? "Save Preferences" : "Salvar Preferências"}
+                    <Save className="w-4 h-4 mr-2" />
+                    <span className="hidden sm:inline">
+                      {isEnglish ? "Save Preferences" : "Salvar Preferências"}
+                    </span>
+                    <span className="sm:hidden">
+                      {isEnglish ? "Save" : "Salvar"}
+                    </span>
                   </Button>
                 </div>
               </div>
