@@ -12,6 +12,7 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Header from "../components/Header";
+import Footer from "../components/Footer";
 import WhatsAppButton from "../components/WhatsAppButton";
 import ServiceCard from "../components/ServiceCard";
 import MethodologySection from "../components/MethodologySection";
@@ -442,6 +443,7 @@ const Services = () => {
         </div>
       </section>
 
+      <Footer />
       <WhatsAppButton />
     </div>
   );

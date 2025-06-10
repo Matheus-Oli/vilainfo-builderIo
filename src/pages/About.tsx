@@ -448,9 +448,7 @@ const About = () => {
                   </p>
                 </div>
               </motion.div>
-            </div>
           </div>
-        </section>
         </div>
       </section>
 
