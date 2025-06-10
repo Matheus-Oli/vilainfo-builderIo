@@ -277,6 +277,20 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({
 export const useLanguage = () => {
   const context = useContext(LanguageContext);
   if (!context) {
+    // Fallback for development hot reload issues
+    if (
+      typeof window !== "undefined" &&
+      process.env.NODE_ENV === "development"
+    ) {
+      console.warn(
+        "useLanguage called outside LanguageProvider, using fallback",
+      );
+      return {
+        language: "pt" as const,
+        setLanguage: () => {},
+        t: (key: string) => key,
+      };
+    }
     throw new Error("useLanguage must be used within a LanguageProvider");
   }
   return context;
