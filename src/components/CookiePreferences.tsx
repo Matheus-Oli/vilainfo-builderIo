@@ -89,7 +89,7 @@ const CookiePreferences = ({ isOpen, onClose }: CookiePreferencesProps) => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          className="fixed inset-0 z-[9999] bg-black/50 backdrop-blur-sm flex items-start sm:items-center justify-center p-2 sm:p-4 pt-4 sm:pt-4 pb-4 overflow-y-auto"
+          className="fixed inset-0 z-[9999] bg-black/50 backdrop-blur-sm flex items-center justify-center p-2 sm:p-4 overflow-hidden"
           onClick={onClose}
         >
           <motion.div
@@ -97,11 +97,11 @@ const CookiePreferences = ({ isOpen, onClose }: CookiePreferencesProps) => {
             animate={{ scale: 1, opacity: 1, y: 0 }}
             exit={{ scale: 0.95, opacity: 0, y: 20 }}
             transition={{ duration: 0.2 }}
-            className="w-full max-w-4xl max-h-[calc(100vh-2rem)] sm:max-h-[calc(100vh-4rem)] overflow-hidden mx-auto my-auto flex flex-col"
+            className="w-full max-w-4xl h-[90vh] sm:h-[85vh] overflow-hidden mx-auto my-auto flex flex-col"
             onClick={(e) => e.stopPropagation()}
           >
             <Card className="border-0 shadow-2xl bg-white dark:bg-gray-900 flex flex-col h-full overflow-hidden">
-              <CardHeader className="relative border-b border-gray-200 dark:border-gray-700 pb-4 sm:pb-6">
+              <CardHeader className="relative border-b border-gray-200 dark:border-gray-700 pb-3 sm:pb-6 flex-shrink-0">
                 <Button
                   variant="ghost"
                   size="sm"
@@ -112,18 +112,18 @@ const CookiePreferences = ({ isOpen, onClose }: CookiePreferencesProps) => {
                   <X className="w-4 h-4 sm:w-5 sm:h-5" />
                 </Button>
 
-                <CardTitle className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white pr-10 sm:pr-12">
+                <CardTitle className="text-lg sm:text-2xl font-bold text-gray-900 dark:text-white pr-10 sm:pr-12">
                   {isEnglish ? "Cookie Preferences" : "Preferências de Cookies"}
                 </CardTitle>
-                <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300 mt-2">
+                <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300 mt-1 sm:mt-2 leading-tight">
                   {isEnglish
-                    ? "Manage your cookie preferences below. You can enable or disable different types of cookies based on your preferences."
-                    : "Gerencie suas preferências de cookies abaixo. Você pode habilitar ou desabilitar diferentes tipos de cookies com base em suas preferências."}
+                    ? "Manage your cookie preferences below."
+                    : "Gerencie suas preferências de cookies abaixo."}
                 </p>
               </CardHeader>
 
               <CardContent className="p-0 flex-1 overflow-y-auto">
-                <div className="p-4 sm:p-6 space-y-4 sm:space-y-6">
+                <div className="p-3 sm:p-6 space-y-3 sm:space-y-6">
                   {/* Cookie Categories */}
                   {categories.map((category) => {
                     const Icon = getCategoryIcon(category.id);
@@ -132,7 +132,7 @@ const CookiePreferences = ({ isOpen, onClose }: CookiePreferencesProps) => {
                     return (
                       <div
                         key={category.id}
-                        className="border border-gray-200 dark:border-gray-700 rounded-xl p-4 sm:p-6 hover:border-gray-300 dark:hover:border-gray-600 transition-colors"
+                        className="border border-gray-200 dark:border-gray-700 rounded-lg sm:rounded-xl p-3 sm:p-6 hover:border-gray-300 dark:hover:border-gray-600 transition-colors"
                       >
                         <div className="flex items-start gap-3 sm:gap-4">
                           <div
@@ -198,13 +198,13 @@ const CookiePreferences = ({ isOpen, onClose }: CookiePreferencesProps) => {
                   })}
 
                   {/* Legal Information */}
-                  <div className="border-t border-gray-200 dark:border-gray-700 pt-4 sm:pt-6">
-                    <div className="bg-gray-50 dark:bg-gray-800 rounded-xl p-4 sm:p-6">
-                      <h4 className="text-base sm:text-lg font-semibold text-gray-900 dark:text-white mb-3 flex items-center gap-2">
+                  <div className="border-t border-gray-200 dark:border-gray-700 pt-3 sm:pt-6">
+                    <div className="bg-gray-50 dark:bg-gray-800 rounded-lg sm:rounded-xl p-3 sm:p-6">
+                      <h4 className="text-sm sm:text-lg font-semibold text-gray-900 dark:text-white mb-2 sm:mb-3 flex items-center gap-2">
                         <Info className="w-4 h-4 sm:w-5 sm:h-5 text-blue-600 dark:text-blue-400" />
                         {isEnglish ? "Your Rights" : "Seus Direitos"}
                       </h4>
-                      <div className="space-y-2 text-xs sm:text-sm text-gray-600 dark:text-gray-300">
+                      <div className="space-y-1 sm:space-y-2 text-xs sm:text-sm text-gray-600 dark:text-gray-300">
                         <p>
                           {isEnglish
                             ? "• You can change your preferences at any time"
@@ -255,12 +255,12 @@ const CookiePreferences = ({ isOpen, onClose }: CookiePreferencesProps) => {
               </CardContent>
 
               {/* Footer Actions */}
-              <div className="border-t border-gray-200 dark:border-gray-700 p-4 sm:p-6 bg-gray-50/50 dark:bg-gray-800/50 flex-shrink-0">
+              <div className="border-t border-gray-200 dark:border-gray-700 p-3 sm:p-6 bg-gray-50/50 dark:bg-gray-800/50 flex-shrink-0">
                 <div className="flex flex-col sm:flex-row gap-2 sm:gap-3 sm:justify-end">
                   <Button
                     variant="outline"
                     onClick={handleRejectAll}
-                    className="border-gray-300 dark:border-gray-600 text-sm sm:text-base h-10 sm:h-auto"
+                    className="border-gray-300 dark:border-gray-600 text-sm h-9 sm:h-10"
                     size="sm"
                   >
                     {isEnglish ? "Reject All" : "Rejeitar Todos"}
@@ -268,17 +268,17 @@ const CookiePreferences = ({ isOpen, onClose }: CookiePreferencesProps) => {
                   <Button
                     variant="outline"
                     onClick={handleAcceptAll}
-                    className="border-green-300 dark:border-green-600 text-green-700 dark:text-green-400 hover:bg-green-50 dark:hover:bg-green-900/20 text-sm sm:text-base h-10 sm:h-auto"
+                    className="border-green-300 dark:border-green-600 text-green-700 dark:text-green-400 hover:bg-green-50 dark:hover:bg-green-900/20 text-sm h-9 sm:h-10"
                     size="sm"
                   >
                     {isEnglish ? "Accept All" : "Aceitar Todos"}
                   </Button>
                   <Button
                     onClick={handleSave}
-                    className="bg-gradient-to-r from-green-600 to-blue-600 hover:from-green-700 hover:to-blue-700 text-white border-0 text-sm sm:text-base h-10 sm:h-auto"
+                    className="bg-gradient-to-r from-green-600 to-blue-600 hover:from-green-700 hover:to-blue-700 text-white border-0 text-sm h-9 sm:h-10"
                     size="sm"
                   >
-                    <Save className="w-4 h-4 mr-2" />
+                    <Save className="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2" />
                     {isEnglish ? "Save Preferences" : "Salvar Preferências"}
                   </Button>
                 </div>
