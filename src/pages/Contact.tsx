@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { useLanguage } from "@/contexts/AppContext";
+import { useAnalytics } from "@/hooks/useAnalytics";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -25,6 +26,7 @@ import WhatsAppButton from "../components/WhatsAppButton";
 const Contact = () => {
   const { t } = useLanguage();
   const isEnglish = t("nav.contact") === "Contact";
+  const { trackFormSubmission, trackEvent } = useAnalytics();
 
   const [formData, setFormData] = useState({
     name: "",
@@ -40,6 +42,11 @@ const Contact = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+
+    // Track form submission for analytics
+    trackFormSubmission("contact_form");
+    trackEvent("form_submit", "contact", formData.service || "general");
+
     // Handle form submission here
     console.log("Form submitted:", formData);
     setIsSubmitted(true);
