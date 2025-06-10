@@ -255,12 +255,6 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({
     }
     return "pt";
   });
-  const [isInitialized, setIsInitialized] = useState(false);
-
-  useEffect(() => {
-    // Mark as initialized after first render
-    setIsInitialized(true);
-  }, []);
 
   const handleSetLanguage = (lang: "pt" | "en") => {
     setLanguage(lang);
@@ -284,7 +278,7 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({
     <LanguageContext.Provider
       value={{ language, setLanguage: handleSetLanguage, t }}
     >
-      {isInitialized ? children : null}
+      {children}
     </LanguageContext.Provider>
   );
 };
