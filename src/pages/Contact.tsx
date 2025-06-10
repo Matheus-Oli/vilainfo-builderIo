@@ -196,28 +196,7 @@ const Contact = () => {
               ? "Ready to transform your business? Get in touch and discover how we can help you achieve your technology goals."
               : "Pronto para transformar seu negócio? Entre em contato e descubra como podemos ajudá-lo a alcançar seus objetivos tecnológicos."}
           </motion.p>
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4, duration: 0.8 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center"
-          >
-            <Button
-              size="lg"
-              className="bg-white text-gray-900 hover:bg-gray-100 px-8 py-4 text-lg rounded-2xl font-semibold shadow-xl"
-            >
-              {isEnglish ? "Start Conversation" : "Iniciar Conversa"}
-              <ArrowRight className="w-5 h-5 ml-2" />
-            </Button>
-            <Button
-              size="lg"
-              variant="outline"
-              className="border-2 border-white text-white bg-white/10 hover:bg-white/20 hover:text-white px-8 py-4 text-lg rounded-2xl backdrop-blur-sm shadow-lg"
-            >
-              {isEnglish ? "Schedule Call" : "Agendar Ligação"}
-              <Phone className="w-5 h-5 ml-2" />
-            </Button>
-          </motion.div>
+
         </div>
       </section>
 
@@ -558,6 +537,7 @@ const Contact = () => {
 
                 {/* Emergency Contact */}
                 <motion.div
+                  className="pt-6"
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.3, duration: 0.6 }}
