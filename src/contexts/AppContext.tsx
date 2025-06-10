@@ -111,6 +111,20 @@ const translations = {
     "footer.location": "Vila Velha, ES",
     "footer.privacy": "Política de Privacidade",
     "footer.terms": "Termos de Uso",
+
+    // Cookies
+    "cookies.banner.title": "Consentimento de Cookies",
+    "cookies.banner.description":
+      "Utilizamos cookies para melhorar sua experiência de navegação, fornecer conteúdo personalizado e analisar nosso tráfego.",
+    "cookies.banner.accept": "Aceitar Todos",
+    "cookies.banner.reject": "Rejeitar Todos",
+    "cookies.banner.customize": "Personalizar",
+    "cookies.policy": "Política de Cookies",
+    "cookies.preferences": "Preferências de Cookies",
+    "cookies.essential": "Cookies Essenciais",
+    "cookies.analytics": "Cookies de Análise",
+    "cookies.marketing": "Cookies de Marketing",
+    "cookies.functional": "Cookies Funcionais",
   },
   en: {
     // Header
@@ -211,6 +225,20 @@ const translations = {
     "footer.location": "Vila Velha, ES",
     "footer.privacy": "Privacy Policy",
     "footer.terms": "Terms of Use",
+
+    // Cookies
+    "cookies.banner.title": "Cookie Consent",
+    "cookies.banner.description":
+      "We use cookies to enhance your browsing experience, provide personalized content, and analyze our traffic.",
+    "cookies.banner.accept": "Accept All",
+    "cookies.banner.reject": "Reject All",
+    "cookies.banner.customize": "Customize",
+    "cookies.policy": "Cookie Policy",
+    "cookies.preferences": "Cookie Preferences",
+    "cookies.essential": "Essential Cookies",
+    "cookies.analytics": "Analytics Cookies",
+    "cookies.marketing": "Marketing Cookies",
+    "cookies.functional": "Functional Cookies",
   },
 };
 
