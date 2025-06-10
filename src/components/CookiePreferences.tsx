@@ -89,7 +89,7 @@ const CookiePreferences = ({ isOpen, onClose }: CookiePreferencesProps) => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          className="fixed inset-0 z-[9999] bg-black/50 backdrop-blur-sm flex items-center justify-center p-1 sm:p-4 overflow-hidden"
+          className="fixed inset-0 z-[9999] bg-black/50 backdrop-blur-sm flex items-center justify-center sm:p-4 overflow-hidden"
           onClick={onClose}
         >
           <motion.div
@@ -97,25 +97,25 @@ const CookiePreferences = ({ isOpen, onClose }: CookiePreferencesProps) => {
             animate={{ scale: 1, opacity: 1, y: 0 }}
             exit={{ scale: 0.95, opacity: 0, y: 20 }}
             transition={{ duration: 0.2 }}
-            className="w-full max-w-4xl h-[95vh] sm:h-[85vh] max-h-[95vh] sm:max-h-[85vh] overflow-hidden mx-auto my-auto flex flex-col"
+            className="w-full h-full sm:w-full sm:max-w-4xl sm:h-[85vh] sm:max-h-[85vh] overflow-hidden mx-auto my-auto flex flex-col sm:rounded-2xl"
             onClick={(e) => e.stopPropagation()}
           >
-            <Card className="border-0 shadow-2xl bg-white dark:bg-gray-900 flex flex-col h-full overflow-hidden">
-              <CardHeader className="relative border-b border-gray-200 dark:border-gray-700 pb-2 sm:pb-6 pt-2 sm:pt-6 flex-shrink-0">
+            <Card className="border-0 sm:shadow-2xl bg-white dark:bg-gray-900 flex flex-col h-full overflow-hidden sm:rounded-2xl">
+              <CardHeader className="relative border-b border-gray-200 dark:border-gray-700 pb-2 sm:pb-6 pt-4 sm:pt-6 flex-shrink-0 safe-area-top">
                 <Button
                   variant="ghost"
                   size="sm"
                   onClick={onClose}
-                  className="absolute top-1 right-1 sm:top-4 sm:right-4 p-1 sm:p-2 hover:bg-gray-100 dark:hover:bg-gray-800 z-10"
+                  className="absolute top-2 right-2 sm:top-4 sm:right-4 p-2 hover:bg-gray-100 dark:hover:bg-gray-800 z-10"
                   aria-label={isEnglish ? "Close" : "Fechar"}
                 >
-                  <X className="w-4 h-4 sm:w-5 sm:h-5" />
+                  <X className="w-5 h-5" />
                 </Button>
 
-                <CardTitle className="text-base sm:text-2xl font-bold text-gray-900 dark:text-white pr-8 sm:pr-12">
+                <CardTitle className="text-lg sm:text-2xl font-bold text-gray-900 dark:text-white pr-12 sm:pr-12">
                   {isEnglish ? "Cookie Preferences" : "Preferências de Cookies"}
                 </CardTitle>
-                <p className="text-xs sm:text-base text-gray-600 dark:text-gray-300 mt-1 leading-tight hidden sm:block">
+                <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300 mt-2 leading-tight hidden sm:block">
                   {isEnglish
                     ? "Manage your cookie preferences below."
                     : "Gerencie suas preferências de cookies abaixo."}
@@ -123,7 +123,7 @@ const CookiePreferences = ({ isOpen, onClose }: CookiePreferencesProps) => {
               </CardHeader>
 
               <CardContent className="p-0 flex-1 overflow-y-auto min-h-0">
-                <div className="p-2 sm:p-6 space-y-2 sm:space-y-6">
+                <div className="p-4 sm:p-6 space-y-3 sm:space-y-6">
                   {/* Cookie Categories */}
                   {categories.map((category) => {
                     const Icon = getCategoryIcon(category.id);
@@ -132,21 +132,21 @@ const CookiePreferences = ({ isOpen, onClose }: CookiePreferencesProps) => {
                     return (
                       <div
                         key={category.id}
-                        className="border border-gray-200 dark:border-gray-700 rounded-lg sm:rounded-xl p-2 sm:p-6 hover:border-gray-300 dark:hover:border-gray-600 transition-colors"
+                        className="border border-gray-200 dark:border-gray-700 rounded-lg sm:rounded-xl p-4 sm:p-6 hover:border-gray-300 dark:hover:border-gray-600 transition-colors"
                       >
-                        <div className="flex items-start gap-2 sm:gap-4">
+                        <div className="flex items-start gap-3 sm:gap-4">
                           <div
-                            className={`w-8 h-8 sm:w-12 sm:h-12 bg-gradient-to-br ${colorClass} rounded-lg sm:rounded-xl flex items-center justify-center flex-shrink-0`}
+                            className={`w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br ${colorClass} rounded-xl flex items-center justify-center flex-shrink-0`}
                           >
-                            <Icon className="w-4 h-4 sm:w-6 sm:h-6 text-white" />
+                            <Icon className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
                           </div>
 
                           <div className="flex-1 min-w-0">
-                            <div className="flex items-start sm:items-center justify-between mb-1 sm:mb-3 gap-2">
-                              <h3 className="text-sm sm:text-lg font-semibold text-gray-900 dark:text-white leading-tight">
+                            <div className="flex items-start sm:items-center justify-between mb-2 sm:mb-3 gap-2">
+                              <h3 className="text-base sm:text-lg font-semibold text-gray-900 dark:text-white leading-tight">
                                 {category.name}
                               </h3>
-                              <div className="flex items-center gap-1 sm:gap-3 flex-shrink-0">
+                              <div className="flex items-center gap-2 sm:gap-3 flex-shrink-0">
                                 <div className="flex flex-col sm:flex-row items-end sm:items-center gap-2">
                                   {category.required && (
                                     <span className="text-xs bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-300 px-2 py-1 rounded-full font-medium whitespace-nowrap">
@@ -167,7 +167,7 @@ const CookiePreferences = ({ isOpen, onClose }: CookiePreferencesProps) => {
                                 </div>
                               </div>
                             </div>
-                            <p className="text-gray-600 dark:text-gray-300 text-xs sm:text-sm leading-tight sm:leading-relaxed">
+                            <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
                               {category.description}
                             </p>
 
@@ -263,7 +263,7 @@ const CookiePreferences = ({ isOpen, onClose }: CookiePreferencesProps) => {
               </CardContent>
 
               {/* Footer Actions */}
-              <div className="border-t border-gray-200 dark:border-gray-700 p-2 sm:p-6 bg-gray-50/50 dark:bg-gray-800/50 flex-shrink-0">
+              <div className="border-t border-gray-200 dark:border-gray-700 p-4 sm:p-6 bg-gray-50/50 dark:bg-gray-800/50 flex-shrink-0 safe-area-bottom">
                 <div className="flex flex-col sm:flex-row gap-2 sm:gap-3 sm:justify-end">
                   <Button
                     variant="outline"
