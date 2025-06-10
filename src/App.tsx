@@ -6,11 +6,13 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { LanguageProvider } from "./contexts/AppContext";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import ScrollToTop from "./components/ScrollToTop";
+import CookieBanner from "./components/CookieBanner";
 import Index from "./pages/Index";
 import About from "./pages/About";
 import Services from "./pages/Services";
 import Clients from "./pages/Clients";
 import Contact from "./pages/Contact";
+import CookiesPolicy from "./pages/CookiesPolicy";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -24,6 +26,7 @@ const App = () => (
           <Sonner />
           <BrowserRouter>
             <ScrollToTop />
+            <CookieBanner />
             <Routes>
               <Route path="/" element={<Index />} />
               <Route path="/sobre" element={<About />} />
@@ -34,6 +37,8 @@ const App = () => (
               <Route path="/clients" element={<Clients />} />
               <Route path="/contato" element={<Contact />} />
               <Route path="/contact" element={<Contact />} />
+              <Route path="/politica-cookies" element={<CookiesPolicy />} />
+              <Route path="/cookie-policy" element={<CookiesPolicy />} />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
             </Routes>
