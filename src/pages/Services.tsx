@@ -313,7 +313,7 @@ const Services = () => {
                 <Button
                   size="lg"
                   variant="outline"
-                  className="border-2 border-white/20 text-white hover:bg-white/10 px-8 py-4 text-lg rounded-2xl backdrop-blur-sm"
+                  className="border-2 border-white/80 dark:border-white/20 text-white hover:bg-white/20 dark:hover:bg-white/10 px-8 py-4 text-lg rounded-2xl backdrop-blur-sm shadow-lg"
                 >
                   <Play className="w-5 h-5 mr-2" />
                   {isEnglish ? "View Portfolio" : "Ver Portfólio"}
@@ -443,7 +443,7 @@ const Services = () => {
               <Button
                 size="lg"
                 variant="outline"
-                className="border-2 border-white/30 text-white hover:bg-white/10 px-8 py-4 text-lg rounded-2xl backdrop-blur-sm"
+                className="border-2 border-white/80 dark:border-white/30 text-white hover:bg-white/20 dark:hover:bg-white/10 px-8 py-4 text-lg rounded-2xl backdrop-blur-sm shadow-lg"
               >
                 {isEnglish ? "View Portfolio" : "Ver Portfólio"}
               </Button>

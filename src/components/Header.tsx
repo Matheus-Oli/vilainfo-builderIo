@@ -58,13 +58,13 @@ const Header = () => {
                 </div>
               </div>
               <div className="flex flex-col">
-                <span className="text-lg lg:text-xl font-bold leading-tight">
+                <span className="text-base sm:text-lg lg:text-xl font-bold leading-tight">
                   <span className="text-gray-900 dark:text-white">VILA</span>
                   <span className="text-green-600 dark:text-green-400">
                     INFO
                   </span>
                 </span>
-                <span className="text-xs text-gray-600 dark:text-gray-400 leading-tight">
+                <span className="text-xs sm:text-xs text-gray-600 dark:text-gray-400 leading-tight">
                   soluções e corporativas
                 </span>
               </div>
@@ -124,7 +124,7 @@ const Header = () => {
                 key={item.label}
                 to={item.href}
                 onClick={() => setIsMenuOpen(false)}
-                className="header__mobile-link block w-full text-left px-4 py-3 text-gray-700 dark:text-gray-300 hover:text-green-600 dark:hover:text-green-400 hover:bg-gray-50 dark:hover:bg-gray-800 rounded-lg font-medium transition-all duration-200"
+                className="header__mobile-link block w-full text-left px-4 py-3 text-base text-gray-700 dark:text-gray-300 hover:text-green-600 dark:hover:text-green-400 hover:bg-gray-50 dark:hover:bg-gray-800 rounded-lg font-medium transition-all duration-200"
               >
                 {item.label}
               </Link>

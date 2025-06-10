@@ -401,7 +401,7 @@ const Clients = () => {
               <Button
                 size="lg"
                 variant="outline"
-                className="border-2 border-white/30 text-white hover:bg-white/10 px-8 py-4 text-lg rounded-2xl backdrop-blur-sm"
+                className="border-2 border-white/80 dark:border-white/30 text-white hover:bg-white/20 dark:hover:bg-white/10 px-8 py-4 text-lg rounded-2xl backdrop-blur-sm shadow-lg"
               >
                 {isEnglish
                   ? "Request Case Studies"
