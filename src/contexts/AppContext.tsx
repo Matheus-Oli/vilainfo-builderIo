@@ -283,7 +283,7 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({
   );
 };
 
-export const useLanguage = () => {
+function useLanguage() {
   const context = useContext(LanguageContext);
   if (!context) {
     // Fallback for development hot reload issues
@@ -303,4 +303,6 @@ export const useLanguage = () => {
     throw new Error("useLanguage must be used within a LanguageProvider");
   }
   return context;
-};
+}
+
+export { useLanguage };
