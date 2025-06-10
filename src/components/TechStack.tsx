@@ -167,7 +167,7 @@ const TechStack = () => {
                 viewport={{ once: true }}
                 className="group"
               >
-                <div className="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 dark:border-gray-700 group-hover:border-green-200 dark:group-hover:border-green-800">
+                <div className="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 dark:border-gray-700 group-hover:border-green-200 dark:group-hover:border-green-800 h-full flex flex-col">
                   <div
                     className={`w-12 h-12 bg-gradient-to-r ${category.color} rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300`}
                   >
@@ -229,7 +229,7 @@ const TechStack = () => {
                   viewport={{ once: true }}
                   className="group"
                 >
-                  <div className="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 dark:border-gray-700 group-hover:border-green-200 dark:group-hover:border-green-800 text-center">
+                  <div className="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 dark:border-gray-700 group-hover:border-green-200 dark:group-hover:border-green-800 text-center h-full flex flex-col justify-between">
                     <div className="w-16 h-16 bg-gradient-to-br from-green-100 to-blue-100 dark:from-green-900/30 dark:to-blue-900/30 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
                       <Icon className="w-8 h-8 text-green-600 dark:text-green-400" />
                     </div>
@@ -277,7 +277,7 @@ const TechStack = () => {
             >
               {isEnglish
                 ? "Industry certifications and strategic partnerships that validate our expertise."
-                : "Certificações da indústria e parcerias estratégicas que validam nossa expertise."}
+                : "Certificações da ind��stria e parcerias estratégicas que validam nossa expertise."}
             </motion.p>
           </div>
 
@@ -291,7 +291,7 @@ const TechStack = () => {
                 viewport={{ once: true }}
                 className="group"
               >
-                <div className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 dark:border-gray-700 group-hover:border-green-200 dark:group-hover:border-green-800 text-center">
+                <div className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 dark:border-gray-700 group-hover:border-green-200 dark:group-hover:border-green-800 text-center h-full flex flex-col justify-between">
                   <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-blue-500 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
                     <CheckCircle className="w-6 h-6 text-white" />
                   </div>

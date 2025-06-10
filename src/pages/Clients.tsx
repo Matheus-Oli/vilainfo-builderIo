@@ -245,8 +245,8 @@ const Clients = () => {
                 viewport={{ once: true }}
                 className="group"
               >
-                <Card className="border-0 shadow-lg hover:shadow-xl transition-all duration-300 bg-white dark:bg-gray-700 group-hover:scale-105">
-                  <CardContent className="p-8 text-center">
+                <Card className="border-0 shadow-lg hover:shadow-xl transition-all duration-300 bg-white dark:bg-gray-700 group-hover:scale-105 h-full">
+                  <CardContent className="p-8 text-center h-full flex flex-col justify-center">
                     <div className="text-4xl mb-4">{industry.icon}</div>
                     <div className="text-2xl font-bold text-green-600 dark:text-green-400 mb-2">
                       {industry.count}
@@ -333,7 +333,7 @@ const Clients = () => {
                 viewport={{ once: true }}
                 className="text-center group"
               >
-                <div className="bg-gradient-to-br from-green-50 to-blue-50 dark:from-green-900/20 dark:to-blue-900/20 rounded-3xl p-8 border border-green-100 dark:border-green-900/30 group-hover:border-green-200 dark:group-hover:border-green-800 transition-all duration-300 group-hover:scale-105">
+                <div className="bg-gradient-to-br from-green-50 to-blue-50 dark:from-green-900/20 dark:to-blue-900/20 rounded-3xl p-8 border border-green-100 dark:border-green-900/30 group-hover:border-green-200 dark:group-hover:border-green-800 transition-all duration-300 group-hover:scale-105 h-full flex flex-col justify-center">
                   <div className="text-4xl mb-4">{item.icon}</div>
                   <div className="text-4xl lg:text-5xl font-bold text-green-600 dark:text-green-400 mb-4">
                     {item.metric}
