@@ -33,8 +33,8 @@ const AboutSection = () => {
                 className="w-full h-[400px] lg:h-[500px] object-cover rounded-2xl shadow-xl"
               />
 
-              {/* Floating Stats Card */}
-              <div className="absolute -bottom-6 -right-6 bg-white rounded-xl shadow-2xl p-6 border border-gray-100">
+              {/* Floating Stats Card - Hidden on mobile */}
+              <div className="absolute -bottom-6 -right-6 bg-white rounded-xl shadow-2xl p-6 border border-gray-100 hidden lg:block">
                 <div className="text-center">
                   <div className="text-3xl font-bold text-green-600 mb-1">
                     30+
@@ -56,10 +56,7 @@ const AboutSection = () => {
             )}
           >
             <h2 className="about__title text-3xl lg:text-4xl font-bold text-gray-900 dark:text-white mb-6">
-              {t("about.title")}{" "}
-              <span className="text-green-600 dark:text-green-400">
-                Vilainfo
-              </span>
+              {t("about.title")}
             </h2>
 
             <div className="about__description space-y-4 text-gray-700 dark:text-gray-300 text-lg leading-relaxed mb-8">

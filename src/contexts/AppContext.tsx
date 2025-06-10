@@ -40,9 +40,9 @@ const translations = {
     "words.modern": "modernas",
 
     // About
-    "about.title": "Quem é a",
+    "about.title": "Quem somos",
     "about.description1":
-      "Somos uma empresa especializada em soluções tecnológicas, com mais de 30 anos de experiência no mercado. Nossa missão é transformar ideias em realidade digital oferecendo serviços de desenvolvimento, segurança e infraestrutura de TI com excelência e inovação.",
+      "A Vilainfo é uma empresa especializada em soluções tecnológicas, com mais de 30 anos de experiência no mercado. Nossa missão é transformar ideias em realidade digital oferecendo serviços de desenvolvimento, segurança e infraestrutura de TI com excelência e inovação.",
     "about.description2":
       "Trabalhamos com as mais modernas tecnologias e metodologias ágeis, garantindo entregas de qualidade no prazo estabelecido.",
     "about.cta": "Saiba Mais",
@@ -153,9 +153,9 @@ const translations = {
     "words.modern": "modern",
 
     // About
-    "about.title": "Who is",
+    "about.title": "Who we are",
     "about.description1":
-      "We are a company specialized in technological solutions, with over 30 years of market experience. Our mission is to transform ideas into digital reality by offering development, security and IT infrastructure services with excellence and innovation.",
+      "Vilainfo is a company specialized in technological solutions, with over 30 years of market experience. Our mission is to transform ideas into digital reality by offering development, security and IT infrastructure services with excellence and innovation.",
     "about.description2":
       "We work with the most modern technologies and agile methodologies, ensuring quality deliveries on schedule.",
     "about.cta": "Learn More",
