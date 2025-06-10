@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { ArrowRight, Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/contexts/AppContext";
+import { Link } from "react-router-dom";
 
 interface ServiceCardProps {
   icon: React.ComponentType<any>;
@@ -118,16 +119,18 @@ const ServiceCard = ({
           </div>
 
           {/* CTA Button */}
-          <Button
-            className={`w-full group/btn ${
-              featured
-                ? "bg-gradient-to-r from-green-500 to-blue-500 hover:from-green-600 hover:to-blue-600 text-white border-0"
-                : "bg-white dark:bg-gray-700 hover:bg-green-50 dark:hover:bg-green-900/20 text-gray-900 dark:text-white border-2 border-gray-200 dark:border-gray-600 hover:border-green-300 dark:hover:border-green-700"
-            } transition-all duration-300`}
-          >
-            <span>{isEnglish ? "Get Started" : "Começar Agora"}</span>
-            <ArrowRight className="w-4 h-4 ml-2 group-hover/btn:translate-x-1 transition-transform duration-200" />
-          </Button>
+          <Link to="/contact">
+            <Button
+              className={`w-full group/btn ${
+                featured
+                  ? "bg-gradient-to-r from-green-500 to-blue-500 hover:from-green-600 hover:to-blue-600 text-white border-0"
+                  : "bg-white dark:bg-gray-700 hover:bg-green-50 dark:hover:bg-green-900/20 text-gray-900 dark:text-white border-2 border-gray-200 dark:border-gray-600 hover:border-green-300 dark:hover:border-green-700"
+              } transition-all duration-300`}
+            >
+              <span>{isEnglish ? "Get Started" : "Começar Agora"}</span>
+              <ArrowRight className="w-4 h-4 ml-2 group-hover/btn:translate-x-1 transition-transform duration-200" />
+            </Button>
+          </Link>
         </div>
 
         {/* Hover Border Effect */}
