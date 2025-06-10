@@ -267,11 +267,11 @@ const CookiePreferences = ({ isOpen, onClose }: CookiePreferencesProps) => {
 
               {/* Footer Actions */}
               <div className="border-t border-gray-200 dark:border-gray-700 p-4 sm:p-6 bg-white dark:bg-gray-900 flex-shrink-0 sticky bottom-0 z-10 shadow-lg sm:shadow-none sm:bg-gray-50/50 sm:dark:bg-gray-800/50">
-                <div className="flex flex-col sm:flex-row gap-2 sm:gap-3 sm:justify-end">
+                <div className="flex flex-col sm:flex-row gap-3 sm:gap-3 sm:justify-end">
                   <Button
                     variant="outline"
                     onClick={handleRejectAll}
-                    className="border-gray-300 dark:border-gray-600 text-sm h-10 sm:h-10 flex-1 sm:flex-none"
+                    className="border-gray-300 dark:border-gray-600 text-sm h-12 sm:h-10 flex-1 sm:flex-none font-medium"
                     size="sm"
                   >
                     {isEnglish ? "Reject All" : "Rejeitar Todos"}
@@ -279,14 +279,14 @@ const CookiePreferences = ({ isOpen, onClose }: CookiePreferencesProps) => {
                   <Button
                     variant="outline"
                     onClick={handleAcceptAll}
-                    className="border-green-300 dark:border-green-600 text-green-700 dark:text-green-400 hover:bg-green-50 dark:hover:bg-green-900/20 text-sm h-10 sm:h-10 flex-1 sm:flex-none"
+                    className="border-green-300 dark:border-green-600 text-green-700 dark:text-green-400 hover:bg-green-50 dark:hover:bg-green-900/20 text-sm h-12 sm:h-10 flex-1 sm:flex-none font-medium"
                     size="sm"
                   >
                     {isEnglish ? "Accept All" : "Aceitar Todos"}
                   </Button>
                   <Button
                     onClick={handleSave}
-                    className="bg-gradient-to-r from-green-600 to-blue-600 hover:from-green-700 hover:to-blue-700 text-white border-0 text-sm h-10 sm:h-10 flex-1 sm:flex-none"
+                    className="bg-gradient-to-r from-green-600 to-blue-600 hover:from-green-700 hover:to-blue-700 text-white border-0 text-sm h-12 sm:h-10 flex-1 sm:flex-none font-medium"
                     size="sm"
                   >
                     <Save className="w-4 h-4 mr-2" />
